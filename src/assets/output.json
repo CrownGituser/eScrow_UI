@@ -1,0 +1,1614 @@
+{
+  "FolderName": "MyRepo",
+  "Files": [
+    ".gitignore",
+    "FincareAPI.sln",
+    "index.html",
+    "output.json",
+    "README.md"
+  ],
+  "SubFolders": [
+    {
+      "FolderName": ".git",
+      "Files": [
+        "config",
+        "description",
+        "HEAD",
+        "index"
+      ],
+      "SubFolders": [
+        {
+          "FolderName": "hooks",
+          "Files": [
+            "README.sample"
+          ]
+        },
+        {
+          "FolderName": "info",
+          "Files": [
+            "exclude"
+          ]
+        },
+        {
+          "FolderName": "logs",
+          "Files": [
+            "HEAD"
+          ],
+          "SubFolders": [
+            {
+              "FolderName": "refs",
+              "SubFolders": [
+                {
+                  "FolderName": "heads",
+                  "Files": [
+                    "main"
+                  ]
+                },
+                {
+                  "FolderName": "remotes",
+                  "SubFolders": [
+                    {
+                      "FolderName": "origin",
+                      "Files": [
+                        "main"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "objects",
+          "SubFolders": [
+            {
+              "FolderName": "info"
+            },
+            {
+              "FolderName": "pack",
+              "Files": [
+                "pack-18d1489d7dd60b16a87f9929d2643e2f99bb1db2.idx",
+                "pack-18d1489d7dd60b16a87f9929d2643e2f99bb1db2.pack"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "refs",
+          "SubFolders": [
+            {
+              "FolderName": "heads",
+              "Files": [
+                "main"
+              ]
+            },
+            {
+              "FolderName": "remotes",
+              "SubFolders": [
+                {
+                  "FolderName": "origin",
+                  "Files": [
+                    "main"
+                  ]
+                }
+              ]
+            },
+            {
+              "FolderName": "tags"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "FolderName": ".vs",
+      "SubFolders": [
+        {
+          "FolderName": "FincareAPI",
+          "SubFolders": [
+            {
+              "FolderName": "config",
+              "Files": [
+                "applicationhost.config"
+              ]
+            },
+            {
+              "FolderName": "FileContentIndex",
+              "Files": [
+                "7be0f27d-6b2a-4382-bfbd-68e48716f11a.vsidx"
+              ]
+            },
+            {
+              "FolderName": "v16",
+              "Files": [
+                ".suo"
+              ]
+            },
+            {
+              "FolderName": "v17",
+              "Files": [
+                ".suo",
+                "DocumentLayout.json"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "FolderName": "GDMS.Entities",
+      "Files": [
+        "AdminEntity.cs",
+        "AuditorEntity.cs",
+        "BaseEntity.cs",
+        "BranchEntity.cs",
+        "BranchInwardEntity.cs",
+        "BranchMappingEntity.cs",
+        "CheckListEntity.cs",
+        "CourierInwardEntity.cs",
+        "CourierReportEntity.cs",
+        "DashboardEntity.cs",
+        "DataEntryEntity.cs",
+        "DataUploadEntity.cs",
+        "DepartmentEntity.cs",
+        "FileInwardEntity.cs",
+        "FileUploadEntity.cs",
+        "Fincare.Entities.csproj",
+        "Fincare.Entities.csproj.user",
+        "HandoverToFincareAuditEntity.cs",
+        "HealthCheckEntity.cs",
+        "IndexMasterEntity.cs",
+        "InwardEntity.cs",
+        "MailEntity.cs",
+        "MenuMappingEntity.cs",
+        "PageRightsEntity.cs",
+        "PagesEntity.cs",
+        "ReportEntity.cs",
+        "RetrivalEntity.cs",
+        "RoleEntity.cs",
+        "SearchMasterEntity.cs",
+        "StatusEntity.cs",
+        "UserEntity.cs",
+        "UserLoginEntity.cs"
+      ],
+      "SubFolders": [
+        {
+          "FolderName": ".vs",
+          "Files": [
+            "Fincare.Entities.csproj.dtbcache.json"
+          ]
+        },
+        {
+          "FolderName": "bin",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                "Dapper.dll",
+                "Dapper.pdb",
+                "Dapper.xml",
+                "Fincare.Entities.dll",
+                "Fincare.Entities.pdb",
+                "GDMS.Entities.dll",
+                "GDMS.Entities.pdb",
+                "Microsoft.Practices.ServiceLocation.dll",
+                "Microsoft.Practices.ServiceLocation.pdb",
+                "Microsoft.Practices.ServiceLocation.xml",
+                "Microsoft.Practices.Unity.Configuration.dll",
+                "Microsoft.Practices.Unity.Configuration.xml",
+                "Microsoft.Practices.Unity.dll",
+                "Microsoft.Practices.Unity.xml"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                "Dapper.dll",
+                "Dapper.pdb",
+                "Dapper.xml",
+                "Fincare.Entities.dll",
+                "Fincare.Entities.pdb",
+                "GDMS.Entities.dll",
+                "GDMS.Entities.pdb",
+                "HiranandaniLease.Entities.dll",
+                "HiranandaniLease.Entities.pdb",
+                "Microsoft.Practices.ServiceLocation.dll",
+                "Microsoft.Practices.ServiceLocation.pdb",
+                "Microsoft.Practices.ServiceLocation.xml",
+                "Microsoft.Practices.Unity.Configuration.dll",
+                "Microsoft.Practices.Unity.Configuration.xml",
+                "Microsoft.Practices.Unity.dll",
+                "Microsoft.Practices.Unity.xml"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "obj",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "DesignTimeResolveAssemblyReferences.cache",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare..B3DE596A.Up2Date",
+                "Fincare.Entities.csproj.AssemblyReference.cache",
+                "Fincare.Entities.csproj.CopyComplete",
+                "Fincare.Entities.csproj.CoreCompileInputs.cache",
+                "Fincare.Entities.csproj.FileListAbsolute.txt",
+                "Fincare.Entities.dll",
+                "Fincare.Entities.pdb",
+                "GDMS.Entities.csproj.AssemblyReference.cache",
+                "GDMS.Entities.csproj.CopyComplete",
+                "GDMS.Entities.csproj.CoreCompileInputs.cache",
+                "GDMS.Entities.csproj.FileListAbsolute.txt",
+                "GDMS.Entities.csprojAssemblyReference.cache",
+                "GDMS.Entities.csprojResolveAssemblyReference.cache",
+                "GDMS.Entities.dll",
+                "GDMS.Entities.pdb",
+                "HiranandaniLease.Entities.csproj.CopyComplete",
+                "HiranandaniLease.Entities.csproj.CoreCompileInputs.cache",
+                "HiranandaniLease.Entities.csproj.FileListAbsolute.txt",
+                "HiranandaniLease.Entities.csprojResolveAssemblyReference.cache",
+                "HiranandaniLease.Entities.dll",
+                "HiranandaniLease.Entities.pdb",
+                "Kotak.Entities.csproj.AssemblyReference.cache",
+                "Kotak.Entities.csproj.CopyComplete",
+                "Kotak.Entities.csproj.CoreCompileInputs.cache",
+                "Kotak.Entities.csproj.FileListAbsolute.txt",
+                "Kotak.Entities.csprojAssemblyReference.cache",
+                "PEL.Entities.csproj.CopyComplete",
+                "PEL.Entities.csproj.CoreCompileInputs.cache",
+                "PEL.Entities.csproj.FileListAbsolute.txt",
+                "TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+                "TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+                "TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare.Entities.csproj.AssemblyReference.cache",
+                "Fincare.Entities.csproj.CopyComplete",
+                "Fincare.Entities.csproj.CoreCompileInputs.cache",
+                "Fincare.Entities.csproj.FileListAbsolute.txt",
+                "Fincare.Entities.dll",
+                "Fincare.Entities.pdb",
+                "GDMS.Entities.csproj.AssemblyReference.cache",
+                "GDMS.Entities.csproj.CopyComplete",
+                "GDMS.Entities.csproj.CoreCompileInputs.cache",
+                "GDMS.Entities.csproj.FileListAbsolute.txt",
+                "GDMS.Entities.csprojAssemblyReference.cache",
+                "GDMS.Entities.dll",
+                "GDMS.Entities.pdb",
+                "HiranandaniLease.Entities.csproj.CopyComplete",
+                "HiranandaniLease.Entities.csproj.CoreCompileInputs.cache",
+                "HiranandaniLease.Entities.csproj.FileListAbsolute.txt",
+                "HiranandaniLease.Entities.csprojResolveAssemblyReference.cache",
+                "HiranandaniLease.Entities.dll",
+                "HiranandaniLease.Entities.pdb",
+                "Kotak.Entities.csproj.AssemblyReference.cache",
+                "Kotak.Entities.csproj.CopyComplete",
+                "Kotak.Entities.csproj.CoreCompileInputs.cache",
+                "Kotak.Entities.csproj.FileListAbsolute.txt",
+                "Kotak.Entities.csprojAssemblyReference.cache",
+                "PEL.Entities.csproj.CoreCompileInputs.cache",
+                "TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+                "TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+                "TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "Properties",
+          "Files": [
+            "AssemblyInfo.cs"
+          ]
+        }
+      ]
+    },
+    {
+      "FolderName": "GDMS.Repository",
+      "Files": [
+        "AdminRepository.cs",
+        "assymtric.cs",
+        "AuditorRepository.cs",
+        "BaseRepository.cs",
+        "BranchInwardRepository.cs",
+        "BranchMappingRepository.cs",
+        "BranchRepository.cs",
+        "CheckListRepository.cs",
+        "CourierInwardRepository.cs",
+        "CourierReportRepository.cs",
+        "DashboardRepository.cs",
+        "DataUplaodRepository.cs",
+        "DepartmentMappingRepository.cs",
+        "DepartmentRepository.cs",
+        "encry.cs",
+        "FileInwardRepository.cs",
+        "Fincare.Repository.csproj",
+        "Fincare.Repository.csproj.user",
+        "GetReport.cs",
+        "HandoverToFincareAuditRepository.cs",
+        "HealthCheckRepository.cs",
+        "InwardRepository.cs",
+        "MailRepository.cs",
+        "packages.config",
+        "ReportRepository.cs",
+        "RetrivalRepository.cs",
+        "RoleRepository.cs",
+        "StatusRepository.cs",
+        "UserLoginRepository.cs"
+      ],
+      "SubFolders": [
+        {
+          "FolderName": ".vs",
+          "Files": [
+            "Fincare.Repository.csproj.dtbcache.json"
+          ]
+        },
+        {
+          "FolderName": "bin",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                "AWSSDK.Core.dll",
+                "AWSSDK.Core.pdb",
+                "AWSSDK.Core.xml",
+                "AWSSDK.S3.dll",
+                "AWSSDK.S3.pdb",
+                "AWSSDK.S3.xml",
+                "Dapper.dll",
+                "Dapper.pdb",
+                "Dapper.xml",
+                "Echovoice.JSON.dll",
+                "Echovoice.JSON.pdb",
+                "Echovoice.JSON.xml",
+                "Fincare.Entities.dll",
+                "Fincare.Entities.pdb",
+                "GDMS.Entities.dll",
+                "GDMS.Entities.pdb",
+                "GDMS.Repository.dll",
+                "GDMS.Repository.Interfaces.dll",
+                "GDMS.Repository.Interfaces.pdb",
+                "GDMS.Repository.pdb",
+                "itextsharp.dll",
+                "itextsharp.xml",
+                "Newtonsoft.Json.dll",
+                "Newtonsoft.Json.xml",
+                "PEL.Repository.Interfaces.dll"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                "AWSSDK.Core.dll",
+                "AWSSDK.Core.pdb",
+                "AWSSDK.Core.xml",
+                "AWSSDK.S3.dll",
+                "AWSSDK.S3.pdb",
+                "AWSSDK.S3.xml",
+                "Dapper.dll",
+                "Dapper.pdb",
+                "Dapper.xml",
+                "Echovoice.JSON.dll",
+                "Echovoice.JSON.pdb",
+                "Echovoice.JSON.xml",
+                "Fincare.Entities.dll",
+                "Fincare.Entities.pdb",
+                "GDMS.Entities.dll",
+                "GDMS.Entities.pdb",
+                "GDMS.Repository.dll",
+                "GDMS.Repository.Interfaces.dll",
+                "GDMS.Repository.Interfaces.pdb",
+                "GDMS.Repository.pdb",
+                "HiranandaniLease.Entities.dll",
+                "HiranandaniLease.Entities.pdb",
+                "HiranandaniLease.Repository.dll",
+                "HiranandaniLease.Repository.Interfaces.dll",
+                "HiranandaniLease.Repository.Interfaces.pdb",
+                "HiranandaniLease.Repository.pdb",
+                "itextsharp.dll",
+                "itextsharp.xml",
+                "Newtonsoft.Json.dll",
+                "Newtonsoft.Json.xml"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "obj",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "build.force",
+                "DesignTimeResolveAssemblyReferences.cache",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare..443F45A0.Up2Date",
+                "Fincare.Repository.csproj.AssemblyReference.cache",
+                "Fincare.Repository.csproj.CopyComplete",
+                "Fincare.Repository.csproj.CoreCompileInputs.cache",
+                "Fincare.Repository.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.csproj.AssemblyReference.cache",
+                "GDMS.Repository.csproj.CopyComplete",
+                "GDMS.Repository.csproj.CoreCompileInputs.cache",
+                "GDMS.Repository.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.csprojAssemblyReference.cache",
+                "GDMS.Repository.csprojResolveAssemblyReference.cache",
+                "GDMS.Repository.dll",
+                "GDMS.Repository.pdb",
+                "HiranandaniLease.Repository.csproj.CopyComplete",
+                "HiranandaniLease.Repository.csproj.CoreCompileInputs.cache",
+                "HiranandaniLease.Repository.csproj.FileListAbsolute.txt",
+                "HiranandaniLease.Repository.csprojResolveAssemblyReference.cache",
+                "Kotak.Repository.csproj.AssemblyReference.cache",
+                "Kotak.Repository.csproj.CopyComplete",
+                "Kotak.Repository.csproj.CoreCompileInputs.cache",
+                "Kotak.Repository.csproj.FileListAbsolute.txt",
+                "Kotak.Repository.csprojAssemblyReference.cache",
+                "PEL.Repository.csproj.CopyComplete",
+                "PEL.Repository.csproj.CoreCompileInputs.cache",
+                "PEL.Repository.csproj.FileListAbsolute.txt",
+                "PEL.Repository.csprojResolveAssemblyReference.cache",
+                "TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+                "TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+                "TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare..443F45A0.Up2Date",
+                "Fincare.Repository.csproj.AssemblyReference.cache",
+                "Fincare.Repository.csproj.CopyComplete",
+                "Fincare.Repository.csproj.CoreCompileInputs.cache",
+                "Fincare.Repository.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.csproj.AssemblyReference.cache",
+                "GDMS.Repository.csproj.CopyComplete",
+                "GDMS.Repository.csproj.CoreCompileInputs.cache",
+                "GDMS.Repository.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.csprojAssemblyReference.cache",
+                "GDMS.Repository.dll",
+                "GDMS.Repository.pdb",
+                "HiranandaniLease.Repository.csproj.CopyComplete",
+                "HiranandaniLease.Repository.csproj.CoreCompileInputs.cache",
+                "HiranandaniLease.Repository.csproj.FileListAbsolute.txt",
+                "HiranandaniLease.Repository.csprojResolveAssemblyReference.cache",
+                "HiranandaniLease.Repository.dll",
+                "HiranandaniLease.Repository.pdb",
+                "Kotak.Repository.csproj.AssemblyReference.cache",
+                "Kotak.Repository.csproj.CopyComplete",
+                "Kotak.Repository.csproj.CoreCompileInputs.cache",
+                "Kotak.Repository.csproj.FileListAbsolute.txt",
+                "Kotak.Repository.csprojAssemblyReference.cache",
+                "PEL.Repository.csproj.CoreCompileInputs.cache",
+                "TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+                "TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+                "TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "Properties",
+          "Files": [
+            "AssemblyInfo.cs"
+          ]
+        }
+      ]
+    },
+    {
+      "FolderName": "GDMS.Repository.Interfaces",
+      "Files": [
+        "Class1.cs",
+        "Fincare.Repository.Interfaces.csproj",
+        "Fincare.Repository.Interfaces.csproj.user",
+        "IAuditor.cs",
+        "IBranchInward.cs",
+        "ICheckList.cs",
+        "ICourierInward.cs",
+        "ICourierReport.cs",
+        "ICustomer.cs",
+        "IDashboard.cs",
+        "IDataEntryRepository.cs",
+        "IDataUpload.cs",
+        "IDocTypeMappingchkRepository.cs",
+        "IFileDetaisRepository.cs",
+        "IFileInward.cs",
+        "IFileupload.cs",
+        "IHandoverToFincareAudit.cs",
+        "IHealthCheck.cs",
+        "IMail.cs",
+        "IMappingchkRepository.cs",
+        "InwardRepository.cs",
+        "IReport.cs",
+        "IRepository.cs",
+        "IRetrival.cs",
+        "IRoleRepository.cs",
+        "ISearchFileStatus.cs",
+        "IStatus.cs",
+        "IUser.cs",
+        "IUserRepository.cs"
+      ],
+      "SubFolders": [
+        {
+          "FolderName": ".vs",
+          "Files": [
+            "Fincare.Repository.Interfaces.csproj.dtbcache.json"
+          ]
+        },
+        {
+          "FolderName": "bin",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                "GDMS.Repository.Interfaces.dll",
+                "GDMS.Repository.Interfaces.pdb"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                "GDMS.Repository.Interfaces.dll",
+                "GDMS.Repository.Interfaces.pdb",
+                "HiranandaniLease.Repository.Interfaces.dll",
+                "HiranandaniLease.Repository.Interfaces.pdb"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "obj",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare.Repository.Interfaces.csproj.AssemblyReference.cache",
+                "Fincare.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "Fincare.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.Interfaces.csproj.AssemblyReference.cache",
+                "GDMS.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "GDMS.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.Interfaces.csprojAssemblyReference.cache",
+                "GDMS.Repository.Interfaces.csprojResolveAssemblyReference.cache",
+                "GDMS.Repository.Interfaces.dll",
+                "GDMS.Repository.Interfaces.pdb",
+                "HiranandaniLease.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "HiranandaniLease.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "Kotak.Repository.Interfaces.csproj.AssemblyReference.cache",
+                "Kotak.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "Kotak.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "Kotak.Repository.Interfaces.csprojAssemblyReference.cache",
+                "PEL.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "PEL.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+                "TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+                "TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare.Repository.Interfaces.csproj.AssemblyReference.cache",
+                "Fincare.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "Fincare.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.Interfaces.csproj.AssemblyReference.cache",
+                "GDMS.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "GDMS.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "GDMS.Repository.Interfaces.csprojAssemblyReference.cache",
+                "GDMS.Repository.Interfaces.dll",
+                "GDMS.Repository.Interfaces.pdb",
+                "HiranandaniLease.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "HiranandaniLease.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "HiranandaniLease.Repository.Interfaces.dll",
+                "HiranandaniLease.Repository.Interfaces.pdb",
+                "Kotak.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "Kotak.Repository.Interfaces.csproj.FileListAbsolute.txt",
+                "Kotak.Repository.Interfaces.csprojAssemblyReference.cache",
+                "PEL.Repository.Interfaces.csproj.CoreCompileInputs.cache",
+                "TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs",
+                "TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs",
+                "TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "Properties",
+          "Files": [
+            "AssemblyInfo.cs"
+          ]
+        }
+      ]
+    },
+    {
+      "FolderName": "GDMS.WebAPI",
+      "Files": [
+        "ApplicationInsights - Copy.config",
+        "ApplicationInsights.config",
+        "assymtric.cs",
+        "CustomMultipartFormDataStreamProvider.cs",
+        "desktop.ini",
+        "favicon.ico",
+        "Fincare.WebAPI.csproj",
+        "Fincare.WebAPI.csproj.user",
+        "Global.asax",
+        "Global.asax.cs",
+        "Helper.cs",
+        "packages.config",
+        "Web.config",
+        "Web.Debug.config",
+        "Web.Release.config"
+      ],
+      "SubFolders": [
+        {
+          "FolderName": ".vs",
+          "Files": [
+            "Fincare.WebAPI.csproj.dtbcache.json"
+          ]
+        },
+        {
+          "FolderName": "App_Start",
+          "Files": [
+            "BundleConfig.cs",
+            "FilterConfig.cs",
+            "RouteConfig.cs",
+            "SwaggerConfig.cs",
+            "UnityConfig.cs",
+            "WebApiConfig.cs"
+          ]
+        },
+        {
+          "FolderName": "Areas",
+          "SubFolders": [
+            {
+              "FolderName": "HelpPage",
+              "Files": [
+                "ApiDescriptionExtensions.cs",
+                "HelpPage.css",
+                "HelpPageAreaRegistration.cs",
+                "HelpPageConfigurationExtensions.cs",
+                "XmlDocumentationProvider.cs"
+              ],
+              "SubFolders": [
+                {
+                  "FolderName": "App_Start",
+                  "Files": [
+                    "HelpPageConfig.cs"
+                  ]
+                },
+                {
+                  "FolderName": "Controllers",
+                  "Files": [
+                    "HelpController.cs"
+                  ]
+                },
+                {
+                  "FolderName": "ModelDescriptions",
+                  "Files": [
+                    "CollectionModelDescription.cs",
+                    "ComplexTypeModelDescription.cs",
+                    "DictionaryModelDescription.cs",
+                    "EnumTypeModelDescription.cs",
+                    "EnumValueDescription.cs",
+                    "IModelDocumentationProvider.cs",
+                    "KeyValuePairModelDescription.cs",
+                    "ModelDescription.cs",
+                    "ModelDescriptionGenerator.cs",
+                    "ModelNameAttribute.cs",
+                    "ModelNameHelper.cs",
+                    "ParameterAnnotation.cs",
+                    "ParameterDescription.cs",
+                    "SimpleTypeModelDescription.cs"
+                  ]
+                },
+                {
+                  "FolderName": "Models",
+                  "Files": [
+                    "HelpPageApiModel.cs"
+                  ]
+                },
+                {
+                  "FolderName": "SampleGeneration",
+                  "Files": [
+                    "HelpPageSampleGenerator.cs",
+                    "HelpPageSampleKey.cs",
+                    "ImageSample.cs",
+                    "InvalidSample.cs",
+                    "ObjectGenerator.cs",
+                    "SampleDirection.cs",
+                    "TextSample.cs"
+                  ]
+                },
+                {
+                  "FolderName": "Views",
+                  "Files": [
+                    "Web.config",
+                    "_ViewStart.cshtml"
+                  ],
+                  "SubFolders": [
+                    {
+                      "FolderName": "Help",
+                      "Files": [
+                        "Api.cshtml",
+                        "Index.cshtml",
+                        "ResourceModel.cshtml"
+                      ],
+                      "SubFolders": [
+                        {
+                          "FolderName": "DisplayTemplates",
+                          "Files": [
+                            "ApiGroup.cshtml",
+                            "CollectionModelDescription.cshtml",
+                            "ComplexTypeModelDescription.cshtml",
+                            "DictionaryModelDescription.cshtml",
+                            "EnumTypeModelDescription.cshtml",
+                            "HelpPageApiModel.cshtml",
+                            "ImageSample.cshtml",
+                            "InvalidSample.cshtml",
+                            "KeyValuePairModelDescription.cshtml",
+                            "ModelDescriptionLink.cshtml",
+                            "Parameters.cshtml",
+                            "Samples.cshtml",
+                            "SimpleTypeModelDescription.cshtml",
+                            "TextSample.cshtml"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "FolderName": "Shared",
+                      "Files": [
+                        "_Layout.cshtml"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "bin",
+          "Files": [
+            "Antlr3.Runtime.dll",
+            "Antlr3.Runtime.pdb",
+            "ApplicationInsights.config",
+            "AWSSDK.Core.dll",
+            "AWSSDK.Core.pdb",
+            "AWSSDK.Core.xml",
+            "AWSSDK.S3.dll",
+            "AWSSDK.S3.pdb",
+            "AWSSDK.S3.xml",
+            "BouncyCastle.Crypto.dll",
+            "BouncyCastle.Crypto.xml",
+            "Common.Logging.Core.dll",
+            "Common.Logging.Core.pdb",
+            "Common.Logging.Core.xml",
+            "Common.Logging.dll",
+            "Common.Logging.pdb",
+            "Common.Logging.xml",
+            "Dapper.dll",
+            "Dapper.pdb",
+            "Dapper.xml",
+            "EPPlus.dll",
+            "EPPlus.Interfaces.dll",
+            "EPPlus.System.Drawing.dll",
+            "EPPlus.xml",
+            "Fincare.Entities.dll",
+            "Fincare.Entities.pdb",
+            "GDMS.Entities.dll",
+            "GDMS.Entities.pdb",
+            "GDMS.Repository.dll",
+            "GDMS.Repository.Interfaces.dll",
+            "GDMS.Repository.Interfaces.pdb",
+            "GDMS.Repository.pdb",
+            "GDMS.WebAPI.dll",
+            "GDMS.WebAPI.dll.config",
+            "GDMS.WebAPI.pdb",
+            "Ionic.Zip.dll",
+            "itext.barcodes.dll",
+            "itext.barcodes.xml",
+            "itext.forms.dll",
+            "itext.forms.xml",
+            "itext.html2pdf.dll",
+            "itext.html2pdf.xml",
+            "itext.io.dll",
+            "itext.io.xml",
+            "itext.kernel.dll",
+            "itext.kernel.xml",
+            "itext.layout.dll",
+            "itext.layout.xml",
+            "itext.pdfa.dll",
+            "itext.pdfa.xml",
+            "itext.sign.dll",
+            "itext.sign.xml",
+            "itext.styledxmlparser.dll",
+            "itext.styledxmlparser.xml",
+            "itext.svg.dll",
+            "itext.svg.xml",
+            "itextsharp.dll",
+            "itextsharp.xml",
+            "Microsoft.AI.Agent.Intercept.dll",
+            "Microsoft.AI.DependencyCollector.dll",
+            "Microsoft.AI.DependencyCollector.xml",
+            "Microsoft.AI.PerfCounterCollector.dll",
+            "Microsoft.AI.ServerTelemetryChannel.dll",
+            "Microsoft.AI.ServerTelemetryChannel.xml",
+            "Microsoft.AI.Web.dll",
+            "Microsoft.AI.Web.xml",
+            "Microsoft.AI.WindowsServer.dll",
+            "Microsoft.AI.WindowsServer.xml",
+            "Microsoft.ApplicationInsights.dll",
+            "Microsoft.ApplicationInsights.xml",
+            "Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll",
+            "Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml",
+            "Microsoft.Web.Infrastructure.dll",
+            "Newtonsoft.Json.dll",
+            "Newtonsoft.Json.xml",
+            "PdfSharp.Charting.dll",
+            "PdfSharp.Charting.xml",
+            "PdfSharp.dll",
+            "PdfSharp.xml",
+            "Swashbuckle.Core.dll",
+            "System.Net.Http.Formatting.dll",
+            "System.Net.Http.Formatting.xml",
+            "System.Runtime.CompilerServices.Unsafe.dll",
+            "System.Runtime.CompilerServices.Unsafe.xml",
+            "System.Web.Cors.dll",
+            "System.Web.Helpers.dll",
+            "System.Web.Helpers.xml",
+            "System.Web.Http.Cors.dll",
+            "System.Web.Http.Cors.xml",
+            "System.Web.Http.dll",
+            "System.Web.Http.WebHost.dll",
+            "System.Web.Http.WebHost.xml",
+            "System.Web.Http.xml",
+            "System.Web.Mvc.dll",
+            "System.Web.Mvc.xml",
+            "System.Web.Optimization.dll",
+            "System.Web.Optimization.xml",
+            "System.Web.Razor.dll",
+            "System.Web.Razor.xml",
+            "System.Web.WebPages.Deployment.dll",
+            "System.Web.WebPages.Deployment.xml",
+            "System.Web.WebPages.dll",
+            "System.Web.WebPages.Razor.dll",
+            "System.Web.WebPages.Razor.xml",
+            "System.Web.WebPages.xml",
+            "Unity.Abstractions.dll",
+            "Unity.Abstractions.pdb",
+            "Unity.Container.dll",
+            "Unity.Container.pdb",
+            "Vintasoft.Imaging.dll",
+            "Vintasoft.Imaging.Ocr.dll",
+            "Vintasoft.Imaging.Ocr.Tesseract.dll",
+            "Vintasoft.Imaging.Pdf.dll",
+            "Vintasoft.Imaging.Pdf.Ocr.dll",
+            "WebActivatorEx.dll",
+            "WebGrease.dll"
+          ],
+          "SubFolders": [
+            {
+              "FolderName": "de",
+              "Files": [
+                "PdfSharp.Charting.resources.dll",
+                "PdfSharp.resources.dll"
+              ]
+            },
+            {
+              "FolderName": "roslyn",
+              "Files": [
+                "csc.exe",
+                "csc.exe.config",
+                "csc.rsp",
+                "csi.exe",
+                "csi.rsp",
+                "Microsoft.Build.Tasks.CodeAnalysis.dll",
+                "Microsoft.CodeAnalysis.CSharp.dll",
+                "Microsoft.CodeAnalysis.CSharp.Scripting.dll",
+                "Microsoft.CodeAnalysis.dll",
+                "Microsoft.CodeAnalysis.Scripting.dll",
+                "Microsoft.CodeAnalysis.VisualBasic.dll",
+                "Microsoft.CSharp.Core.targets",
+                "Microsoft.DiaSymReader.Native.amd64.dll",
+                "Microsoft.DiaSymReader.Native.x86.dll",
+                "Microsoft.VisualBasic.Core.targets",
+                "System.AppContext.dll",
+                "System.Collections.Immutable.dll",
+                "System.Diagnostics.StackTrace.dll",
+                "System.IO.FileSystem.dll",
+                "System.IO.FileSystem.Primitives.dll",
+                "System.Reflection.Metadata.dll",
+                "vbc.exe",
+                "vbc.exe.config",
+                "vbc.rsp",
+                "VBCSCompiler.exe",
+                "VBCSCompiler.exe.config"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "Content",
+          "Files": [
+            "bootstrap.css",
+            "bootstrap.min.css",
+            "Site.css"
+          ]
+        },
+        {
+          "FolderName": "Controllers",
+          "Files": [
+            "AdminController.cs",
+            "AuditorController.cs",
+            "BranchInwardController - Copy.cs",
+            "BranchInwardController.cs",
+            "BranchMappingController.cs",
+            "BranchMasterController.cs",
+            "CheckListController.cs",
+            "CourierInwardController.cs",
+            "CourierReportController.cs",
+            "DashboardController.cs",
+            "DataUploadController.cs",
+            "DepartmentController.cs",
+            "DepartmentMappingController.cs",
+            "FileInwardController.cs",
+            "HandoverToFincareAuditController.cs",
+            "HealthCheckController.cs",
+            "InwardController.cs",
+            "MailController.cs",
+            "ReportController.cs",
+            "RetrivalController.cs",
+            "RoleController.cs",
+            "StatusController.cs",
+            "UserController.cs",
+            "UserLoginController.cs",
+            "ValuesController.cs"
+          ]
+        },
+        {
+          "FolderName": "ExportedFiles",
+          "Files": [
+            "A000758829.pdf",
+            "ExportedFiles - Shortcut.lnk"
+          ]
+        },
+        {
+          "FolderName": "Extensions",
+          "Files": [
+            "EmailExtesion.cs",
+            "SecurityExtensions.cs",
+            "ServiceExtensions.cs",
+            "ValidateTokenExtension.cs"
+          ]
+        },
+        {
+          "FolderName": "fonts",
+          "Files": [
+            "glyphicons-halflings-regular.eot",
+            "glyphicons-halflings-regular.svg",
+            "glyphicons-halflings-regular.ttf",
+            "glyphicons-halflings-regular.woff"
+          ]
+        },
+        {
+          "FolderName": "HomeBannerImages",
+          "Files": [
+            "1.JPG",
+            "1adonia-sm.jpg.jpg",
+            "2.JPG",
+            "5.JPG",
+            "attractive-building.jpg",
+            "cast-bed.JPG",
+            "interior-exterior.jpg",
+            "Picture2.jpg",
+            "Picture3.jpg",
+            "Picture5.jpg",
+            "Picture6.jpg"
+          ]
+        },
+        {
+          "FolderName": "obj",
+          "SubFolders": [
+            {
+              "FolderName": "Debug",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "build.force",
+                "DesignTimeResolveAssemblyReferences.cache",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare..50968C05.Up2Date",
+                "Fincare.WebAPI.csproj.AssemblyReference.cache",
+                "Fincare.WebAPI.csproj.CopyComplete",
+                "Fincare.WebAPI.csproj.CoreCompileInputs.cache",
+                "Fincare.WebAPI.csproj.FileListAbsolute.txt",
+                "Fincare.WebAPI.csprojAssemblyReference.cache",
+                "GDMS.WebAPI.csproj.AssemblyReference.cache",
+                "GDMS.WebAPI.csproj.CopyComplete",
+                "GDMS.WebAPI.csproj.CoreCompileInputs.cache",
+                "GDMS.WebAPI.csproj.FileListAbsolute.txt",
+                "GDMS.WebAPI.csprojAssemblyReference.cache",
+                "GDMS.WebAPI.dll",
+                "GDMS.WebAPI.pdb",
+                "Kotak.WebAPI.csproj.AssemblyReference.cache",
+                "Kotak.WebAPI.csproj.CopyComplete",
+                "Kotak.WebAPI.csproj.CoreCompileInputs.cache",
+                "Kotak.WebAPI.csproj.FileListAbsolute.txt",
+                "Kotak.WebAPI.csprojAssemblyReference.cache"
+              ]
+            },
+            {
+              "FolderName": "Release",
+              "Files": [
+                ".NETFramework,Version=v4.5.AssemblyAttributes.cs",
+                ".NETFramework,Version=v4.8.AssemblyAttributes.cs",
+                "DesignTimeResolveAssemblyReferencesInput.cache",
+                "Fincare..50968C05.Up2Date",
+                "Fincare.WebAPI.csproj.AssemblyReference.cache",
+                "Fincare.WebAPI.csproj.CopyComplete",
+                "Fincare.WebAPI.csproj.CoreCompileInputs.cache",
+                "Fincare.WebAPI.csproj.FileListAbsolute.txt",
+                "GDMS.WebAPI.csproj.AssemblyReference.cache",
+                "GDMS.WebAPI.csproj.CopyComplete",
+                "GDMS.WebAPI.csproj.CoreCompileInputs.cache",
+                "GDMS.WebAPI.csproj.FileListAbsolute.txt",
+                "GDMS.WebAPI.csprojAssemblyReference.cache",
+                "GDMS.WebAPI.dll",
+                "GDMS.WebAPI.pdb",
+                "Kotak.WebAPI.csproj.AssemblyReference.cache",
+                "Kotak.WebAPI.csproj.CopyComplete",
+                "Kotak.WebAPI.csproj.CoreCompileInputs.cache",
+                "Kotak.WebAPI.csproj.FileListAbsolute.txt",
+                "Kotak.WebAPI.csprojAssemblyReference.cache",
+                "_WPPLastBuildInfo.txt"
+              ],
+              "SubFolders": [
+                {
+                  "FolderName": "Package",
+                  "SubFolders": [
+                    {
+                      "FolderName": "PackageTmp",
+                      "Files": [
+                        "ApplicationInsights.config",
+                        "favicon.ico",
+                        "Global.asax",
+                        "Web.config"
+                      ],
+                      "SubFolders": [
+                        {
+                          "FolderName": "Areas",
+                          "SubFolders": [
+                            {
+                              "FolderName": "HelpPage",
+                              "Files": [
+                                "HelpPage.css"
+                              ],
+                              "SubFolders": [
+                                {
+                                  "FolderName": "Views",
+                                  "Files": [
+                                    "Web.config",
+                                    "_ViewStart.cshtml"
+                                  ],
+                                  "SubFolders": [
+                                    {
+                                      "FolderName": "Help",
+                                      "Files": [
+                                        "Api.cshtml",
+                                        "Index.cshtml",
+                                        "ResourceModel.cshtml"
+                                      ],
+                                      "SubFolders": [
+                                        {
+                                          "FolderName": "DisplayTemplates",
+                                          "Files": [
+                                            "ApiGroup.cshtml",
+                                            "CollectionModelDescription.cshtml",
+                                            "ComplexTypeModelDescription.cshtml",
+                                            "DictionaryModelDescription.cshtml",
+                                            "EnumTypeModelDescription.cshtml",
+                                            "HelpPageApiModel.cshtml",
+                                            "ImageSample.cshtml",
+                                            "InvalidSample.cshtml",
+                                            "KeyValuePairModelDescription.cshtml",
+                                            "ModelDescriptionLink.cshtml",
+                                            "Parameters.cshtml",
+                                            "Samples.cshtml",
+                                            "SimpleTypeModelDescription.cshtml",
+                                            "TextSample.cshtml"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "FolderName": "Shared",
+                                      "Files": [
+                                        "_Layout.cshtml"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "FolderName": "bin",
+                          "Files": [
+                            "Antlr3.Runtime.dll",
+                            "Antlr3.Runtime.pdb",
+                            "ApplicationInsights.config",
+                            "AWSSDK.Core.dll",
+                            "AWSSDK.Core.pdb",
+                            "AWSSDK.S3.dll",
+                            "AWSSDK.S3.pdb",
+                            "BouncyCastle.Crypto.dll",
+                            "Common.Logging.Core.dll",
+                            "Common.Logging.Core.pdb",
+                            "Common.Logging.dll",
+                            "Common.Logging.pdb",
+                            "Dapper.dll",
+                            "Dapper.pdb",
+                            "EPPlus.dll",
+                            "EPPlus.Interfaces.dll",
+                            "EPPlus.System.Drawing.dll",
+                            "Fincare.Entities.dll",
+                            "Fincare.Entities.pdb",
+                            "GDMS.Repository.dll",
+                            "GDMS.Repository.Interfaces.dll",
+                            "GDMS.Repository.Interfaces.pdb",
+                            "GDMS.Repository.pdb",
+                            "GDMS.WebAPI.dll",
+                            "GDMS.WebAPI.pdb",
+                            "Ionic.Zip.dll",
+                            "itext.barcodes.dll",
+                            "itext.forms.dll",
+                            "itext.html2pdf.dll",
+                            "itext.io.dll",
+                            "itext.kernel.dll",
+                            "itext.layout.dll",
+                            "itext.pdfa.dll",
+                            "itext.sign.dll",
+                            "itext.styledxmlparser.dll",
+                            "itext.svg.dll",
+                            "itextsharp.dll",
+                            "Microsoft.AI.Agent.Intercept.dll",
+                            "Microsoft.AI.DependencyCollector.dll",
+                            "Microsoft.AI.PerfCounterCollector.dll",
+                            "Microsoft.AI.ServerTelemetryChannel.dll",
+                            "Microsoft.AI.Web.dll",
+                            "Microsoft.AI.WindowsServer.dll",
+                            "Microsoft.ApplicationInsights.dll",
+                            "Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll",
+                            "Microsoft.Web.Infrastructure.dll",
+                            "Newtonsoft.Json.dll",
+                            "PdfSharp.Charting.dll",
+                            "PdfSharp.dll",
+                            "Swashbuckle.Core.dll",
+                            "System.Net.Http.Formatting.dll",
+                            "System.Runtime.CompilerServices.Unsafe.dll",
+                            "System.Web.Cors.dll",
+                            "System.Web.Helpers.dll",
+                            "System.Web.Http.Cors.dll",
+                            "System.Web.Http.dll",
+                            "System.Web.Http.WebHost.dll",
+                            "System.Web.Mvc.dll",
+                            "System.Web.Optimization.dll",
+                            "System.Web.Razor.dll",
+                            "System.Web.WebPages.Deployment.dll",
+                            "System.Web.WebPages.dll",
+                            "System.Web.WebPages.Razor.dll",
+                            "Unity.Abstractions.dll",
+                            "Unity.Abstractions.pdb",
+                            "Unity.Container.dll",
+                            "Unity.Container.pdb",
+                            "Vintasoft.Imaging.dll",
+                            "Vintasoft.Imaging.Ocr.dll",
+                            "Vintasoft.Imaging.Ocr.Tesseract.dll",
+                            "Vintasoft.Imaging.Pdf.dll",
+                            "Vintasoft.Imaging.Pdf.Ocr.dll",
+                            "WebActivatorEx.dll",
+                            "WebGrease.dll"
+                          ],
+                          "SubFolders": [
+                            {
+                              "FolderName": "de",
+                              "Files": [
+                                "PdfSharp.Charting.resources.dll",
+                                "PdfSharp.resources.dll"
+                              ]
+                            },
+                            {
+                              "FolderName": "roslyn",
+                              "Files": [
+                                "csc.exe",
+                                "csc.exe.config",
+                                "csc.rsp",
+                                "csi.exe",
+                                "csi.rsp",
+                                "Microsoft.Build.Tasks.CodeAnalysis.dll",
+                                "Microsoft.CodeAnalysis.CSharp.dll",
+                                "Microsoft.CodeAnalysis.CSharp.Scripting.dll",
+                                "Microsoft.CodeAnalysis.dll",
+                                "Microsoft.CodeAnalysis.Scripting.dll",
+                                "Microsoft.CodeAnalysis.VisualBasic.dll",
+                                "Microsoft.CSharp.Core.targets",
+                                "Microsoft.DiaSymReader.Native.amd64.dll",
+                                "Microsoft.DiaSymReader.Native.x86.dll",
+                                "Microsoft.VisualBasic.Core.targets",
+                                "System.AppContext.dll",
+                                "System.Collections.Immutable.dll",
+                                "System.Diagnostics.StackTrace.dll",
+                                "System.IO.FileSystem.dll",
+                                "System.IO.FileSystem.Primitives.dll",
+                                "System.Reflection.Metadata.dll",
+                                "vbc.exe",
+                                "vbc.exe.config",
+                                "vbc.rsp",
+                                "VBCSCompiler.exe",
+                                "VBCSCompiler.exe.config"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "FolderName": "Content",
+                          "Files": [
+                            "bootstrap.css",
+                            "bootstrap.min.css",
+                            "Site.css"
+                          ]
+                        },
+                        {
+                          "FolderName": "fonts",
+                          "Files": [
+                            "glyphicons-halflings-regular.eot",
+                            "glyphicons-halflings-regular.svg",
+                            "glyphicons-halflings-regular.ttf",
+                            "glyphicons-halflings-regular.woff"
+                          ]
+                        },
+                        {
+                          "FolderName": "Scripts",
+                          "Files": [
+                            "bootstrap.js",
+                            "bootstrap.min.js",
+                            "jquery-1.10.2.js",
+                            "jquery-1.10.2.min.js",
+                            "jquery-1.10.2.min.map",
+                            "modernizr-2.6.2.js",
+                            "respond.js",
+                            "respond.min.js"
+                          ]
+                        },
+                        {
+                          "FolderName": "Views",
+                          "Files": [
+                            "Web.config",
+                            "_ViewStart.cshtml"
+                          ],
+                          "SubFolders": [
+                            {
+                              "FolderName": "Home",
+                              "Files": [
+                                "Index.cshtml"
+                              ]
+                            },
+                            {
+                              "FolderName": "Shared",
+                              "Files": [
+                                "Error.cshtml",
+                                "_Layout.cshtml"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "FolderName": "TransformWebConfig",
+                  "SubFolders": [
+                    {
+                      "FolderName": "assist",
+                      "Files": [
+                        "Web.config"
+                      ]
+                    },
+                    {
+                      "FolderName": "original",
+                      "Files": [
+                        "Web.config"
+                      ]
+                    },
+                    {
+                      "FolderName": "transformed",
+                      "Files": [
+                        "Web.config"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "ProjectImages",
+          "Files": [
+            "1.JPG",
+            "1adonia-sm.jpg.jpg",
+            "2.JPG",
+            "3.JPG",
+            "5.JPG",
+            "adonia-b-floorplan-3bhk.jpg",
+            "adonia-b-floorplan-4bhk.jpg",
+            "adonia-floorplan-4bhk.jpg",
+            "adonia-floorplan.jpg",
+            "adonia-layout.jpg",
+            "adonia-sm.jpg",
+            "adonia-sm.jpg.jpg",
+            "adonia-sm1.jpg",
+            "Afghanistan.png",
+            "asp-net.png",
+            "at-floor-plan-garden.jpg",
+            "at-floor-plan.jpg",
+            "at0.jpg",
+            "at1.jpg",
+            "at2.jpg",
+            "at3.jpg",
+            "at4.jpg",
+            "atlantis-a-b.jpg",
+            "atlantis-c-elevation.jpg",
+            "atlantis-c.jpg",
+            "Atlantis-Floor-Plan-A.jpg",
+            "Atlantis-Floor-Plan-B.jpg",
+            "Atlantis-Floor-Plan-C-1-3.jpg",
+            "Atlantis-Floor-Plan-C-2.jpg",
+            "Atlantis-Floor-Plan-C-4n6.jpg",
+            "Atlantis-Floor-Plan-C-5.jpg",
+            "atlantis-layout.jpg",
+            "Atlantis-Plan-B.jpg",
+            "Barca.jpg",
+            "barrington-elevation.jpg",
+            "barrington-floor-plan-flat-1-4.jpg",
+            "barrington-floor-plan-flat-2.jpg",
+            "barrington-floor-plan-flat-3.jpg",
+            "barrington-layout-plan.jpg",
+            "bas-1.JPG",
+            "bas-2.JPG",
+            "bas-3.JPG",
+            "bas-4.JPG",
+            "basilius-fl-5-bhk.jpg",
+            "basilius-floor.jpg",
+            "basilius-layout.jpg",
+            "basilius.jpg",
+            "canary-floor.jpg",
+            "canary.jpg",
+            "cardina-floor.jpg",
+            "Cardinal-Floor-plan-1234.jpg",
+            "cardinal-layout.jpg",
+            "cardinal.jpg",
+            "cas-balcony-hall.JPG",
+            "cas-bed.JPG",
+            "cas-hall.JPG",
+            "cas-hall2.JPG",
+            "cast-bed.JPG",
+            "castle-floor.jpg",
+            "castle-rock.jpg",
+            "facebook.png",
+            "flamingo.jpg",
+            "for-hall.JPG",
+            "fortuna-bed-outside.JPG",
+            "fortuna-bed.JPG",
+            "fortuna-hall.JPG",
+            "fortuna.jpg",
+            "forum.png",
+            "globe.png",
+            "google-plus.png",
+            "Leona-Elevation.jpg",
+            "leona-fl-4-bhk.jpg",
+            "leona-fl-5-bhk.jpg",
+            "leona-floor.jpg",
+            "leona-layout.jpg",
+            "leona.jpg",
+            "marvela-fl-5-bhk.jpg",
+            "marvela-layout.jpg",
+            "marvela-refuge-fl.jpg",
+            "marvela.jpg",
+            "outer0.JPG",
+            "outer1.JPG",
+            "outer2.JPG",
+            "perl.png",
+            "philipa.jpg",
+            "Phillipa-Floor-plan-flat-1.jpg",
+            "phillipa-floor.jpg",
+            "phillipa-layout.jpg",
+            "powai-01.jpg",
+            "powai-010.jpg",
+            "powai-011.jpg",
+            "powai-012.jpg",
+            "powai-02.jpg",
+            "powai-03.jpg",
+            "powai-04.jpg",
+            "powai-05.jpg",
+            "powai-06.jpg",
+            "powai-07.jpg",
+            "powai-08.jpg",
+            "powai-09.jpg",
+            "Preston-elevation.jpg",
+            "preston-floor-plan-flat-1.jpg",
+            "preston-floor-plan-flat-2.jpg",
+            "preston-floor-plan-flat-3.jpg",
+            "preston-floor-plan-flat-4.jpg",
+            "preston-layout-plan.jpg",
+            "python.png",
+            "royce-fl-4-bhk.jpg",
+            "royce-fl-5-bhk.jpg",
+            "royce-fl-51-bhk.jpg",
+            "royce-layout.jpg",
+            "royce.jpg",
+            "sm-1.jpg",
+            "willowcrest-floor-plan-flat-1-2.jpg",
+            "willowcrest-layout-plan.jpg",
+            "Willowcrust-elevation.jpg"
+          ]
+        },
+        {
+          "FolderName": "Properties",
+          "Files": [
+            "AssemblyInfo.cs"
+          ],
+          "SubFolders": [
+            {
+              "FolderName": "PublishProfiles",
+              "Files": [
+                "CustomProfile1.pubxml",
+                "CustomProfile1.pubxml.user",
+                "FolderProfile.pubxml",
+                "FolderProfile.pubxml.user",
+                "FolderProfile1.pubxml",
+                "FolderProfile1.pubxml.user",
+                "FolderProfile10.pubxml",
+                "FolderProfile10.pubxml.user",
+                "FolderProfile11.pubxml",
+                "FolderProfile11.pubxml.user",
+                "FolderProfile12.pubxml",
+                "FolderProfile12.pubxml.user",
+                "FolderProfile13.pubxml",
+                "FolderProfile13.pubxml.user",
+                "FolderProfile14.pubxml",
+                "FolderProfile14.pubxml.user",
+                "FolderProfile15.pubxml",
+                "FolderProfile15.pubxml.user",
+                "FolderProfile2.pubxml",
+                "FolderProfile2.pubxml.user",
+                "FolderProfile3.pubxml",
+                "FolderProfile3.pubxml.user",
+                "FolderProfile4.pubxml",
+                "FolderProfile4.pubxml.user",
+                "FolderProfile5.pubxml",
+                "FolderProfile5.pubxml.user",
+                "FolderProfile6.pubxml",
+                "FolderProfile6.pubxml.user",
+                "FolderProfile7.pubxml",
+                "FolderProfile7.pubxml.user",
+                "FolderProfile8.pubxml",
+                "FolderProfile8.pubxml.user",
+                "FolderProfile9.pubxml",
+                "FolderProfile9.pubxml.user"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "Resolver",
+          "Files": [
+            "UnityResolver.cs"
+          ]
+        },
+        {
+          "FolderName": "Scripts",
+          "Files": [
+            "bootstrap.js",
+            "bootstrap.min.js",
+            "jquery-1.10.2.intellisense.js",
+            "jquery-1.10.2.js",
+            "jquery-1.10.2.min.js",
+            "jquery-1.10.2.min.map",
+            "modernizr-2.6.2.js",
+            "respond.js",
+            "respond.min.js"
+          ]
+        },
+        {
+          "FolderName": "Temp",
+          "Files": [
+            "dump637295809141886630-a9f8078e-f0ce-457f-80cb-aba1a1538606.pdf",
+            "dump637295810282685376-200b006d-8ffc-4358-9f73-fe44d01095e3.pdf"
+          ]
+        },
+        {
+          "FolderName": "Uploads",
+          "SubFolders": [
+            {
+              "FolderName": "06-05-2020",
+              "Files": [
+                "2a2da3c7-e00f-4f31-85a6-bd71dc6771b4.pdf",
+                "3b986cfe-fd91-4d6a-ab4d-8cb50c4d1db3.pdf",
+                "8b9a7f32-18bc-432e-afea-55a17311eccc.pdf",
+                "b5798f63-c1f8-4bbe-ac73-a8fc78fc22a4.pdf"
+              ]
+            },
+            {
+              "FolderName": "21-04-2020",
+              "Files": [
+                "63907474-8681-4960-944f-2e22b4dc07b5.pdf",
+                "75572c33-2e2d-43b1-89d7-613b28c80a6c.pdf",
+                "be49e5b6-0471-494b-bf44-4a404a38c0bf.pdf",
+                "c9dfbe1a-7248-4757-9829-f262f7f60bd6.pdf",
+                "d3558d7b-a144-47a2-9334-cf6b95735948.pdf",
+                "d4c19e6f-8062-4b6d-bf7b-74b223c0baec.pdf",
+                "dc0988b3-719e-49de-b9b1-c72038b32d1f.pdf",
+                "e27338ed-f072-4839-a664-883c8ef109d1.pdf",
+                "e55bc534-1cfe-4b88-8d52-ff8aa9d6eca9.pdf"
+              ]
+            },
+            {
+              "FolderName": "29-04-2020",
+              "Files": [
+                "10607_099c9ca6-39c8-457b-87a0-b791ec0829ab.pdf"
+              ]
+            }
+          ]
+        },
+        {
+          "FolderName": "Views",
+          "Files": [
+            "Web.config",
+            "_ViewStart.cshtml"
+          ],
+          "SubFolders": [
+            {
+              "FolderName": "Home",
+              "Files": [
+                "Index.cshtml"
+              ]
+            },
+            {
+              "FolderName": "Shared",
+              "Files": [
+                "Error.cshtml",
+                "_Layout.cshtml"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

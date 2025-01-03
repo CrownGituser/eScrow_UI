@@ -1,0 +1,243 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home" routerLink="/search/quick-search"> </i>
+                </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                Project
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="dataTables_wrapper">
+        <p-table [paginator]="true" [rows]="10" [value]="formattedData" [autoLayout]="true"
+          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]" [first]="first"
+          (onPage)="paginate($event)" [loading]="loading"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          styleClass="p-datatable-striped">
+          <ng-template pTemplate="caption">
+            <input type="text" pInputText size="50" placeholder="Search records" (input)="searchTable($event)"
+              class="global-search" />
+            <div class="btn-group float-right">
+              <button type="button" class="btn success" tooltip="Download" (click)="onDownloadExcelFile('Project List')">
+                <i class="fa fa-download fa-lg"></i>
+              </button>
+              <a class="btn successbtn" (click)="createProject()" style="color: white;height: 2rem;padding: 5px 16px;border-radius: 4px;" tooltip="Create Project">
+                <i class="fa fa-plus fa-medium" aria-hidden="true"></i> Create Project</a>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of headerList; let i = index" [ngStyle]="i == 0 && { width: '5%' }">
+                {{ col.header }}
+                <p-sortIcon *ngIf="i == 11" [field]="col.field"></p-sortIcon>
+              </th>
+              <th>CONFIGURATION STATUS</th>
+              <th style="width: 8%; text-align: center">ACTION</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+            <tr>
+              <td *ngFor="let col of headerList">
+                {{ car[col.field] }}
+              </td>
+              <td>
+                <p [ngClass]="{
+                  'Active1': car['Config_Status'] == 'Manual Upload',
+                  'Active': car['Config_Status'] == 'Activation Completed',
+                  'Inactive': car['Config_Status'] == 'Configuration Pending',
+                  'Pending': car['Config_Status'] == 'Activation Pending'
+                }">{{ car["Config_Status"] }}</p>
+              </td>
+              <td>
+                <div style="display: flex; align-items: center">
+                  <!-- User Mapping -->
+                  <button type="button" tooltip="User Mapping" style="padding: 0 0 6px 4px;color: #000;width: 28px;height: 28px;" 
+                  class="btn btn-icon btn-secondary btn-icon-only rounded-circle" (click)="userMappingForProject(car)">
+                    <span class="btn-inner--icon"><i class="fas fa-user-plus" style="color: #000;margin-right: 3px;margin-top: 0.32rem;size: -2px;font-size: 13px;"></i></span>
+                  </button>
+
+                  <!-- Edit Escrow -->
+                  <button type="button" tooltip="Edit Escrow" style="margin-left: 10px;color: #000; width: 28px; height: 28px;" 
+                  class="btn btn-icon btn-secondary btn-icon-only rounded-circle" (click)="onEditProject(car)">
+                    <span class="btn-inner--icon"><i class="fa fa-pen"
+                        style="color: #000; margin-bottom: 6px; font-size: 13px"></i></span>
+                  </button>
+
+                  <!-- View Details -->
+                  <button type="button" tooltip="View Details" style="margin-left: 10px;color: #000;width: 28px;height: 28px;" 
+                    class="btn btn-icon btn-secondary btn-icon-only rounded-circle"
+                    (click)="ProjectDetails(ProjectDetailsPopup,car)">
+                    <span class="btn-inner--icon"><i class="fa fa-eye" style="color: #000; margin-bottom: 6px; font-size: 13px"></i></span>
+                  </button>
+
+                  <!-- Configuration -->
+                  <button type="button" tooltip="Project Configuration" style="margin-left: 10px;color: #000;width: 28px;height: 28px;" 
+                    class="btn btn-icon btn-secondary btn-icon-only rounded-circle"
+                    (click)="projectConfiguration(car)">
+                    <span class="btn-inner--icon"><i class="fa fa-link" style="color: #000; margin-bottom: 6px; font-size: 13px"></i></span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #ProjectDetailsPopup let-c="close" let-d="dismiss" let-modal>
+    
+  <div class="popup-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80vw; height: 80vh; max-width: 1200px; overflow-y: auto; background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 1050;">
+    <div class="p-0">
+      <form [formGroup]="AddProjectDetailsForm">
+        
+        <!-- Main Card Starts -->
+        <div class="card" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9; height: 100%;">
+          
+          <!-- Card Header -->
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; box-shadow: none;">
+            <h3 class="mb-0">PROJECT DETAILS</h3>
+            <i class="fa fa-times" style="color: #a1a1a1; cursor: pointer; font-size: 24px;" (click)="onClose()"></i>
+          </div>
+          
+          <!-- Project Details Section -->
+          <div class="card-body" style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); background-color: #ffffff; margin-bottom: 1rem;">
+            <div class="row">
+              <!-- Project Name Field -->
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="ProjectName" style="color: black;font-weight: bold;">Project Name:</label>
+                  <span> {{AddProjectDetailsForm.get('ProjectName').value}} </span>
+                </div>
+              </div>
+
+              <!-- Beneficiary Organization Name Field -->
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="beneficiaryOrg" style="color: black;font-weight: bold;">Beneficiary Organization Name:</label>
+                  <span> {{AddProjectDetailsForm.get('BeneficiaryName').value}} </span>
+                </div>
+              </div>
+
+              <!-- Depository Organization Name Field -->
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="depositoryOrg" style="color: black;font-weight: bold;">Depository Organization Name:</label>
+                  <span> {{AddProjectDetailsForm.get('DepositorName').value}} </span>
+                </div>
+              </div>
+            </div>
+        
+          
+          <!-- Agreement Dates Section -->
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="agreementStartDate" style="color: black;font-weight: bold;">Agreement Start Date:</label>
+                  <span> {{AddProjectDetailsForm.get('StartDate').value}} </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="agreementEndDate" style="color: black;font-weight: bold;">Agreement End Date:</label>
+                  <span> {{AddProjectDetailsForm.get('EndDate').value}} </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="noOfBeneficiary" style="color: black;font-weight: bold;">No. of Beneficiary:</label>
+                  <span> {{AddProjectDetailsForm.get('BeneficiaryNo').value}} </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="noOfBeneficiary" style="color: black;font-weight: bold;">No. of Depository:</label>
+                  <span> {{AddProjectDetailsForm.get('DepositorNo').value}} </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Date Information Section -->
+          <div class="card-body" style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); background-color: #ffffff; margin-bottom: 1rem;">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="initialPullDate" style="color: black;font-weight: bold;">Initial Pull Date:</label>
+                  <span> {{AddProjectDetailsForm.get('CodeInitialPull').value}} </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="latestPullDate" style="color: black;font-weight: bold;">Latest Pull Date:</label>
+                  <span> {{AddProjectDetailsForm.get('CodeLastPullAt').value}} </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="manualLatestDate" style="color: black; font-weight: bold;">Manual Latest Date:</label>
+                  <span> {{AddProjectDetailsForm.get('ManualLatestDate').value}} </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Table Section -->
+          <!-- <div class="card-body" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); background-color: #f9f9f9;"> -->
+            <div class="dataTables_wrapper">
+              <p-table [paginator]="true" [rows]="10" [value]="formattedDataForProjectDetails" [autoLayout]="true"
+                [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]" [first]="first"
+                (onPage)="paginate($event)" [loading]="loading"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                styleClass="p-datatable-striped">
+                <ng-template pTemplate="caption">
+                  <input type="text" pInputText size="50" placeholder="Search records" (input)="searchTable($event)"
+                    class="global-search" />
+                  <div class="btn-group float-right">
+                    <button type="button" class="btn success" tooltip="Download" (click)="onDownloadExcelFile('Project List')">
+                      <i class="fa fa-download fa-lg"></i>
+                    </button>
+                  </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th *ngFor="let col of headerListForProjectDetails; let i = index" [ngStyle]="i == 0 && { width: '5%' }">
+                      {{ col.header }}
+                      <p-sortIcon *ngIf="i == 11" [field]="col.field"></p-sortIcon>
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+                  <tr>
+                    <td *ngFor="let col of headerListForProjectDetails">
+                      {{ car[col.field] }}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ng-template>
+
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

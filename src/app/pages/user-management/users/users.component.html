@@ -1,0 +1,272 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home" routerLink="/search/quick-search"> </i>
+                </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                User
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="dataTables_wrapper">
+        <p-table [paginator]="true" [rows]="10" [value]="formattedData" [autoLayout]="true"
+          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]" [first]="first"
+          (onPage)="paginate($event)" [loading]="loading"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          styleClass="p-datatable-striped">
+          <ng-template pTemplate="caption">
+            <input type="text" pInputText size="50" placeholder="Search records" (input)="searchTable($event)"
+              class="global-search" />
+            <div class="btn-group float-right">
+              <button type="button" class="btn success" pTooltip="Download" tooltipPosition="top"
+                (click)="onDownloadExcelFile('User List')">
+                <i class="fa fa-download fa-lg"></i>
+              </button>
+              <!-- <button type="button" class="btn btn success" pTooltip="Filter" tooltipPosition="top"
+                (click)="UserReset(resetPassword)">
+                <i class="fa fa-filter fa-lg"></i>
+              </button> -->
+              <a class="btn successbtn" (click)="addUser(userFormPopup)" style="
+                  color: white;
+                  height: 2rem;
+                  padding: 5px 16px;
+                  border-radius: 4px;
+                " pTooltip="Add User" tooltipPosition="top"><i class="fa fa-plus fa-medium" aria-hidden="true"></i> Add
+                User</a>
+            </div>
+          </ng-template>
+
+          <ng-template pTemplate="header">
+            <tr>
+              <th *ngFor="let col of headerList; let i = index" [ngStyle]="i == 0 && { width: '5%' }">
+                {{ col.header }}
+                <p-sortIcon *ngIf="i == 10" [field]="col.field"></p-sortIcon>
+              </th>
+              <th>STATUS</th>
+              <th style="width: 8%; text-align: center">ACTION</th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+            <tr>
+              <td *ngFor="let col of headerList">
+                {{ car[col.field] }}
+              </td>
+              <td>
+                  <p [ngClass]="car['ISACTIVE'] == 'Active' ? 'Active' : 'In-Active'">{{ car["ISACTIVE"] }}</p>
+              </td>
+              <td>
+                <div class="foroutertablebtn" style="display: flex; align-items: center">
+                  <p-toggleButton [(ngModel)]="car.checked" onIcon="fa fa-lock" offIcon="fa fa-lock-open" 
+                   styleClass="btn btn-icon btn-secondary btn-icon-only rounded-circle"
+                   [pTooltip]="car.checked ? 'Active User' : 'In-Active User'" 
+                   pTooltip="Toggle User Status" tooltipPosition="top" (onChange)="deleteEmployee(car)">
+                  </p-toggleButton>
+
+                  <!-- Edit User -->
+                  <button type="button" pTooltip="Edit User" tooltipPosition="top" style="
+                      margin-left: 10px;
+                      color: #000;
+
+                      width: 28px;
+                      height: 28px;
+                    " class="btn btn-icon btn-secondary btn-icon-only rounded-circle"
+                    (click)="editEmployee(userFormPopup, car)">
+                    <span class="btn-inner--icon"><i class="fa fa-user-edit"
+                        style="color: #000; margin-bottom: 6px; font-size: 13px"></i></span>
+                  </button>
+
+                  <!-- View Details -->
+                  <button type="button" pTooltip="View Details" tooltipPosition="top" style="
+                      margin-left: 10px;
+                      color: #000;
+
+                      width: 28px;
+                      height: 28px;
+                    " class="btn btn-icon btn-secondary btn-icon-only rounded-circle"
+                    (click)="ShowFolderDetails(FolderDetails, car)">
+                    <span class="btn-inner--icon"><i class="fa fa-eye"
+                        style="color: #000; margin-bottom: 6px; font-size: 13px"></i></span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #userFormPopup let-c="close" let-d="dismiss" let-modal>
+  <div class="modal-content">
+    <div class="modal-body p-0">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3 class="mb-0">{{ User }}</h3>
+          <div class="foroutertablebtn">
+            <button type="button" tooltip="User Mapping" style="padding: 0 0 6px 4px;color: #000;width: 28px;height: 28px;" 
+              class="btn btn-icon btn-secondary btn-icon-only rounded-circle" (click)="OnClose()">
+              <span class="btn-inner--icon"><i class="fa fa-times fa-lg" style="color: #000;margin-right: 3px;margin-top: 0.32rem;size: -2px;font-size: 13px;"></i></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card-body mr-4">
+          <form class="needs-validation" novalidate="" [formGroup]="AddUserForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="name"> Name * </label>
+                <input class="form-control" name="name" ng-pattern="/^[a-zA-Z]*$/" id="name" formControlName="name"
+                  placeholder="Name" type="text" />
+                <div class="errorMsg-feedback" *ngIf="
+                    f.name.touched && f.name.invalid && f.name.errors.required
+                  ">
+                  Required
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="userid">
+                  User Id *
+                </label>
+                <input name="userid" id="userid" formControlName="userid" placeholder="User Id" type="text"
+                  class="form-control" autocomplete="off" />
+                <div class="errorMsg-feedback" *ngIf="f.userid.touched && f.userid.hasError('required')">
+                  Required
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="email"> Email * </label>
+                <input id="email" formControlName="email" placeholder="Email" type="email" class="form-control" />
+                <div class="errorMsg-feedback" *ngIf="f.email.touched && f.email.hasError('required')">
+                  Email Id Required
+                </div>
+                <div class="errorMsg-feedback" *ngIf="f.email.touched && f.email.errors?.pattern">
+                  Please Enter Valid Email Id
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="mobile">
+                  Mobile *
+                </label>
+                <input name="mobile" maxlength="10" formControlName="mobile" placeholder="Mobile" type="number"
+                  class="form-control" />
+                <div class="errorMsg-feedback" *ngIf="f.mobile.touched && f.mobile.hasError('required')">
+                  Mobile No Required
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="loginPass">
+                  Password *
+                </label>
+                <input name="pwd" id="loginPass" formControlName="pwd" required minlength="12" placeholder="Password"
+                  type="password" class="form-control" autocomplete="new-password" />
+                <div class="errorMsg-feedback" *ngIf="f.pwd.touched && f.pwd.errors">
+                  Password should meet the following criteria:
+                  <ul>
+                    <li>Contain at least 12 characters</li>
+                    <li>Contain at least 1 special character</li>
+                    <li>Contain at least 1 number</li>
+                    <li>Contain at least 1 lowercase character (a-z)</li>
+                    <li>Contain at least 1 uppercase character (A-Z)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="confirmPass">
+                  Confirm Password *
+                </label>
+                <input name="confirmPass" id="confirmPass" formControlName="confirmPass" placeholder="Confirm Password"
+                  type="password" class="form-control" />
+                <div class="errorMsg-feedback" *ngIf="
+                    f.confirmPass.touched && f.confirmPass.hasError('required')
+                  ">
+                  Confirm Password Required
+                </div>
+                <div class="errorMsg-feedback" *ngIf="
+                    f.confirmPass.touched &&
+                    f.confirmPass.invalid &&
+                    f.confirmPass.errors.confirmedValidator
+                  ">
+                  Password and Confirm Password must match.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="usetType">
+                  User Type *
+                </label>
+                <select name="DeptID" id="usetType" class="form-control" formControlName="usetType">
+                  <option value="0">Select UserType</option>
+                  <option *ngFor="let _UserType of _UsertypeList" [value]="_UserType.id">
+                    {{ _UserType.Usertype }}
+                  </option>
+                </select>
+                <div class="errorMsg-feedback" *ngIf="
+                    f.name.touched && f.name.invalid && f.name.errors.required
+                  ">
+                  Required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-control-label" for="roleName">
+                  Roles *
+                </label>
+                <select name="roleName" id="roleName" class="form-control" formControlName="roleName">
+                  <option value="0">Select Role</option>
+                  <option *ngFor="let _Role of _RoleList" [value]="_Role.id">
+                    {{ _Role.roleName }}
+                  </option>
+                </select>
+                <div class="errorMsg-feedback" *ngIf="
+                    f.name.touched && f.name.invalid && f.name.errors.required
+                  ">
+                  Required
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn successbtn" [disabled]="AddUserForm.invalid" (click)="onSubmit()">
+                Save
+              </button>
+              <button type="button" class="btn dangerbtn" (click)="OnReset()">
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

@@ -1,0 +1,118 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home text-dark"> </i>
+                </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                Git Lab Selection
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" container-fluid mt--6">
+  <div class=" row" style="margin-top: 4rem;">
+    <div class="col-md-12">
+      <div class="card" style="box-shadow: 0px 7px 9px 5px #b7b7b7;">
+        <div class="row" style="align-items: center;">
+          <div class="col-md-6" style="padding-top: 20px; padding-left: 35px;">
+            <h4>CONFIGURATION GIT LAB REPOSITORY </h4>
+          </div>
+          <div class="col-md-6" style="text-align: right; padding-right: 35px; padding-top: 20px;">
+            <button type="button" class="btn success" pTooltip="Back" tooltipPosition="top" (click)="OnBack()">
+              <i class="fa fa-arrow-left fa-lg"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <p style="color: black; font-weight: bold;">Git Lab Selection</p>
+          <form class="needs-validation" novalidate="" [formGroup]="GitSelectionForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="projectname" style="font-size: 15px;">Project Name *</label>
+                <input class="form-control" type="text" name="projectname" id="projectname"
+                  formControlName="projectname" placeholder="Enter project name">
+                <div class="errorMsg-feedback" *ngIf="
+                        f.projectname?.touched && f.projectname?.invalid && f.projectname?.errors.required">
+                  Project name is required*
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="gitUser" style="font-size: 15px;">Git User *</label>
+                <input class="form-control" type="text" name="gitUser" id="gitUser" formControlName="gitUser"
+                  placeholder="Enter git username">
+                <div class="errorMsg-feedback" *ngIf="
+                f.gitUser?.touched && f.gitUser?.invalid && f.gitUser?.errors.required">
+                  Git user is required*
+                </div>
+              </div>
+
+              <div class="col-4 mb-3">
+                <label class="form-control-label" for="pwd" style="font-size: 15px;">Password *</label>
+                <input class="form-control" type="password" name="pwd" id="pwd" formControlName="pwd"
+                  placeholder="Enter git password">
+                <div class="errorMsg-feedback" *ngIf="
+                f.pwd?.touched && f.pwd?.invalid && f.pwd?.errors.required">
+                  Password is required*
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="repositoryname" style="font-size: 15px;">Repository Name
+                  *</label>
+                <input class="form-control" type="text" name="repositoryname" id="repositoryname"
+                  formControlName="repositoryname" placeholder="Enter git repo name">
+                <div class="errorMsg-feedback" *ngIf="
+                        f.repositoryname?.touched && f.repositoryname?.invalid && f.repositoryname?.errors.required">
+                  Repository name is required*
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="token/url" style="font-size: 15px;">Token/URL *</label>
+                <input class="form-control" type="text" name="token" id="token" formControlName="token"
+                  placeholder="Enter project name">
+                <div class="errorMsg-feedback" *ngIf="
+                            f.token?.touched && f.token?.invalid && f.token?.errors.required">
+                  Token/URL is required*
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <button type="button" class="btn successbtn" [disabled]="GitSelectionForm.invalid">
+                Save
+              </button>
+              <button type="button" class="btn dangerbtn" (click)="OnReset()">
+                Reset
+              </button>
+            </div>
+
+
+
+
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

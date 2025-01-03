@@ -1,0 +1,27 @@
+ace-editor {
+    height: 500px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  pre {
+    padding: 0 !important;
+    margin: 0 !important;
+    color: white;
+    white-space: pre-wrap; 
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px !important; /* Adjust the width of the scrollbar */
+    height: 5px !important;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5) !important; /* Adjust the color of the scrollbar thumb */
+    border-radius: 10px !important; /* Round the edges */
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent !important; /* Background of the scrollbar track */
+  }
+  

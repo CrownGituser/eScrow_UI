@@ -1,0 +1,36 @@
+// #navbar-main {
+//     position: fixed;
+//     width: 100%;
+//     right: 0;
+//     height: 64px;
+//     z-index: 12;
+//     padding: 3rem 0;
+// }
+.avatar{
+    background-color: transparent !important;
+}
+#navbar-main {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    height: 85px;
+    z-index: 12;
+    padding: 2rem 0;
+    // background: #FFF6F6 !important;
+    background: #0f3464 !important;
+    // border: 2px solid #FFCC00 !important;
+    background: linear-gradient(to bottom, #ffffff, #cbdeff);
+    border-bottom: 1px solid #9a9a9a  !important;
+    box-shadow: 0px 0px 10px 0px #4f4f4f 
+}
+.dropdown-item:hover{
+    background-color: #88b0c3;
+    color: #000;
+}
+.navbar{
+    padding-right: 0 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    /* color: rgba(255, 255, 255, 0.95); */
+    color: #000 !important;
+}

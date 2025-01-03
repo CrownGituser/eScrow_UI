@@ -1,0 +1,247 @@
+<div class="header pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item">
+                                <a href="javascript:void(0)" class="text-gray">
+                                    <i class="fas fa-home" routerLink="/search/quick-search"> </i>
+                                </a>
+                            </li>
+                            <li aria-current="page" class="breadcrumb-item active text-dark">
+                                Code Sync - Verification
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="dataTables_wrapper">
+                <p-table [paginator]="true" [rows]="10" [value]="formattedData" [autoLayout]="true"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]" [first]="first"
+                    (onPage)="paginate($event)" [loading]="loading"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    styleClass="p-datatable-striped">
+                    <ng-template pTemplate="caption">
+                        <input type="text" pInputText size="50" placeholder="Search records"
+                            (input)="searchTable($event)" class="global-search" />
+                        <div class="btn-group float-right">
+                            <button type="button" class="btn success" pTooltip="Download" tooltipPosition="top"
+                                (click)="onDownloadExcelFile('User List')">
+                                <i class="fa fa-download fa-lg"></i>
+                            </button>
+                        </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th *ngFor="let col of headerList; let i = index" [ngStyle]="i == 0 && { width: '5%' }">
+                                {{ col.header }}
+                                <p-sortIcon *ngIf="i == 10" [field]="col.field"></p-sortIcon>
+                            </th>
+                            <th>STATUS</th>
+                            <th style="width: 8%; text-align: center">VIEW REPO</th>
+                            <th style="width: 8%; text-align: center">SOURCE VALIDATOR</th>
+                            <th style="width: 8%; text-align: center">ACTION</th>
+                        </tr>
+                    </ng-template>
+
+                    <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+                        <tr>
+                            <td *ngFor="let col of headerList">
+                                {{ car[col.field] }}
+                            </td>
+                            <td>
+                                <p [ngClass]="car['ISACTIVE'] == 'Active' ? 'Active' : 'In-Active'">{{ car["ISACTIVE"]
+                                    }}</p>
+                            </td>
+                            <td>
+                                <a data-toggle="modal" (click)="ViewRepo(car)" data-target="#modal-right"
+                                    data-toggle-class="modal-open-aside">
+                                    <span *ngIf="car['UploadType']==='SFTP'"> <img src="assets/img/open-book.png"
+                                            alt="Edit User" class="btn-image"
+                                            style=" width: 28px; height: 28px;margin-left: 10px;" /></span>
+
+                                    <span *ngIf="car['UploadType']==='GIT'"> <img src="assets/img/open-book.png"
+                                            alt="Edit User" class="btn-image"
+                                            style=" width: 28px; height: 28px;margin-left: 10px;" /></span>
+
+                                    <span style=" width: 28px; height: 28px;margin-left: 20px; color:#000"
+                                        *ngIf="car['UploadType']==='Manual Upload'"><i class="fa fa-upload"
+                                            aria-hidden="true" (click)='uploadNavigation()'></i></span>
+
+                                </a>
+                            </td>
+                            <td>
+                                <button type="button" pTooltip="View Code" tooltipPosition="top"
+                                style="margin-left: 10px;color: #000;width: 28px;height: 28px;"
+                                    class="btn btn-icon btn-secondary btn-icon-only"
+                                    (click)="ShowFolderDetails(FolderDetails, car)">
+                                    <span class="btn-inner--icon"><i class="far fa-file-code"
+                                            style="color: #000; margin-bottom: 28px; font-size: 28px"></i></span>
+                                </button>
+                            </td>
+                            <td>
+                                <!-- View Details -->
+                                <button type="button" tooltip="View Details"
+                                    style="margin-left: 10px;color: #000;width: 28px;height: 28px;"
+                                    class="btn btn-icon btn-secondary btn-icon-only rounded-circle"
+                                    (click)="ProjectDetails(car)">
+                                    <span class="btn-inner--icon"><i class="fa fa-eye"
+                                            style="color: #000; margin-bottom: 6px; font-size: 13px"></i></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-sm-6">
+                <div id="modal-right" class="modal fade" data-backdrop="true">
+                    <div class="modal-dialog modal-right w-xl">
+                        <div class="modal-content h-100 no-radius">
+                            <div class="modal-header">
+                                <div class="modal-title text-md">
+                                    <p style="color: black; font-size: larger;">
+                                        {{ projectName }}
+                                    </p>
+                                </div>
+                            </div>
+                            <p-tabView>
+                                <p-tabPanel header="Submit Code">
+                                    <!-- Bind form to (ngSubmit) -->
+                                    <form #AddUserForm="ngForm" (ngSubmit)="onSubmit(AddUserForm)">
+                                        <div class="modal-body">
+                                            <!-- Pull Source Code Button -->
+                                            <div class="pl-4 pb-4">
+                                                <button type="button" class="btn btn-primary" [disabled]="loading"
+                                                    (click)="pullGitCode()"
+                                                    style="background-color: #005e82; color: antiquewhite; border-radius: 7px;">
+                                                    Pull Source Code
+                                                </button>
+                                            </div>
+
+                                            <!-- Code Pull Status -->
+                                            <div>
+                                                <div *ngIf="initilizerLoaderOn"
+                                                    style="display: flex; align-items: center;">
+                                                    <p
+                                                        style="margin: 0; padding-right: 10px; padding-left: 30px; font-size: large; color: #005e82">
+                                                        Code Pull Initialized
+                                                    </p>
+                                                    <div class="spinner-border text-info" role="status">
+                                                        <span class="sr-only">Loading...</span>
+                                                    </div>
+                                                </div>
+                                                <div *ngIf="initilizerLoaderOn === false"
+                                                    style="display: flex; align-items: center;">
+                                                    <p
+                                                        style="margin: 0; padding-right: 10px; padding-left: 20px; font-size: large; color: #51af46">
+                                                        Code Pull Completed
+                                                    </p>
+                                                    <div>
+                                                        <i class="fas fa-check card icon_style"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Comment Field -->
+                                            <div class="pl-4 pt-4">
+                                                <label for="comment" style="font-size: large;">Comment *</label>
+                                                <textarea id="comment" name="comment" ngModel #comment="ngModel"
+                                                    required rows="5" cols="40" style="border-radius: 3px;"></textarea>
+                                                <div *ngIf="comment.invalid && comment.touched">
+                                                    <p style="color: red;">Comment is required.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Button -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary"
+                                                [disabled]="AddUserForm.invalid" data-dismiss="modal"
+                                                (click)="onSubmit(AddUserForm)">
+                                                Submit Code
+                                            </button>
+                                        </div>
+                                    </form>
+                                </p-tabPanel>
+                                <p-tabPanel header="Audit Log">
+                                    <p-timeline [value]="events | slice:-5" class="card"
+                                        style="margin-left: 0; padding-left: 0; background-color: #ffffff;border: none; ">
+                                        <ng-template pTemplate="content" let-event>
+                                            <div class="card"
+                                                style="width: 180px;height: 140px;border-radius: 10px;background-color: #ffffff; margin-left: 30px; ">
+                                                <i [class]="event.Status === 'Code Pull Completed' ? 'pi pi-check-circle' : 'pi pi-times-circle'"
+                                                    [ngStyle]="{'color': event.Status === 'Code Pull Completed' ? 'green' : 'red'}"
+                                                    style="font-weight: bold;font-size: larger;"></i>
+                                                <p class="pl-3 mb-0 " style="font-weight: bold;">{{ event.Status }}</p>
+                                                <p class="pl-3 mt-0">{{ event.CodeLastPullAt }}</p>
+                                            </div>
+                                        </ng-template>
+                                    </p-timeline>
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-sm-6">
+                <div id="modal-Admin" class="modal fade" data-backdrop="true">
+                    <div class="modal-dialog modal-right w-xl">
+                        <div class="modal-content h-100 no-radius">
+                            <div class="modal-header">
+                                <div class="modal-title text-md">
+                                    <p style="color: black; font-size: larger;">
+                                        {{projectName}} Code Intigrater
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="pl-4 pb-4">
+                                    <span><i class="fa fa-check card"
+                                            style="font-size:19px;color:rgb(219, 214, 214);padding-top: 5px;padding-left: 4px;"></i></span>
+                                </div>
+                                <div class="pl-4 ">
+                                    <p style=" font-size:large;"> comment *</p>
+                                    <textarea rows="5" cols="50" style="border-radius: 3px; "></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Submit Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+    [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

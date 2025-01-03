@@ -1,0 +1,66 @@
+.upload-container {
+  border: 2px dashed #007bff;
+  padding: 20px;
+  text-align: center;
+  margin: 20px 0;
+  border-radius: 10px;
+  margin: auto;
+  width: 40%;
+  background-color: #eef4ff;
+  box-shadow: 0px 0px 15px 7px #dbdada;
+}
+.upload-container i {
+  font-size: 60px;
+  color: #007bff;
+}
+.upload-container p {
+  margin: 20px 0;
+}
+.btn-upload {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+}
+.btn-reset {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+}
+.table-container {
+  margin-top: 20px;
+}
+.table th, .table td {
+  text-align: center;
+}
+
+/* Ensure the styles are applied even with Angular's view encapsulation */
+::ng-deep .p-fileupload .p-button {
+  background-color: #007bff; /* Change to your desired background color */
+  border-color: #007bff; /* Change to your desired border color */
+  color: #fff; /* Text color */
+}
+::ng-deep .p-fileupload .custom-upload-btn {
+  background-color: #050505 !important;
+  border-color: #007bff !important;
+  color: #fff !important;
+}
+/* 
+::ng-deep .p-fileupload .p-button:hover {
+  background-color: #0056b3 !important;
+  border-color: #0056b3 !important;
+}
+
+::ng-deep .p-fileupload .p-button.p-button-secondary {
+  background-color: #6c757d !important;
+  border-color: #6c757d !important;
+  color: #fff !important;
+}
+
+::ng-deep .p-fileupload .p-button.p-button-secondary:hover {
+  background-color: #5a6268 !important;
+  border-color: #5a6268 !important;
+} */

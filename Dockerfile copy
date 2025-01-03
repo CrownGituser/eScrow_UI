@@ -1,0 +1,29 @@
+# Stage 1: Build
+FROM node:latest AS build
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install --force
+
+# Copy all source files
+COPY . .
+
+# Generate the build of the application
+RUN npm run build --prod
+
+# Stage 2: Serve app with nginx server
+FROM nginx:latest
+
+# Copy the build output to replace the default nginx contents
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start NGINX
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,0 +1,194 @@
+<div class="header pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item">
+                  <a href="javascript:void(0)" class="text-gray">
+                    <i class="fas fa-home text-dark"> </i>
+                  </a>
+                </li>
+                <li aria-current="page" class="breadcrumb-item active text-dark">
+                  Project Dashboard Screen
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--6" style="height: 80vh; margin-top: 20px;">
+    <div class="row" style="height: 100%;">
+      <div class="col-md-12" style="height: 100%;">
+        <div class="card" style="height: 100%; box-shadow: 0px 7px 9px 5px #b7b7b7;">
+          <div class="card-body" style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); background-color: #ffffff; margin-bottom: 1rem;">
+            <div class="row">
+              <div class="col-lg-2 col-md-6 col-sm-12" style="margin-left: 50px;">
+                <div class="form-group">
+                  <label for="projectname" style="color: black; font-weight: bold;">Project Name</label>
+                </div>
+              </div>
+  
+              <div class="col-lg-2 col-md-6 col-sm-12" style="margin-left: 85px;">
+                <div class="form-group">
+                  <label for="beneficiaryOrg" style="color: black; font-weight: bold;">Start Date</label>
+                </div>
+              </div>
+  
+              <div class="col-lg-2 col-md-6 col-sm-12" style="margin-left: 85px;">
+                <div class="form-group">
+                  <label for="depositoryOrg" style="color: black; font-weight: bold;">End Date</label>
+                </div>
+              </div>
+  
+              <div class="col-lg-2 col-md-6 col-sm-12" style="margin-left: 82px;">
+                <div class="form-group">
+                  <label for="agreementStartDate" style="color: black; font-weight: bold;">Status</label>
+                </div>
+              </div>
+  
+              <div class="col-lg-2 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="agreementEndDate" style="color: black; font-weight: bold;">Contributers</label>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Row to align Card and Tables -->
+            <div class="container-fluid" style="margin-top: 20px;">
+                <div class="row">
+                  <!-- Card -->
+                  <div class="col-lg-3 col-md-6">
+                    <div class="card" style="width: 100%; height: 40rem; box-shadow: 0px 7px 9px rgba(0,0,0,0.1);">
+                      <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                        <!-- Pie chart with larger size -->
+                        <p-chart type="doughnut" [data]="chartData" [options]="chartOptions" style="width: 100%; height: 30rem;"></p-chart>
+                  
+                        <!-- Labels below the chart -->
+                        <div class="chart-labels mt-3">
+                          <div class="label">
+                            <span class="used-space"></span> Used Space: 36%
+                          </div>
+                          <div class="label">
+                            <span class="available-space"></span> Available Space: 64%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+              
+                  <!-- Tables -->
+                  <div class="col-lg-9 col-md-6">
+                    <!-- First Table -->
+                    <div class="dataTables_wrapper checklist-table w-100" style="
+                        background-color: #ffffff;
+                        box-shadow: 0px 7px 9px 5px #c2cdd7;
+                        border-radius: 8px;
+                        overflow: hidden;">
+                      <p-table [paginator]="true" [rows]="10" [value]="formattedData" [autoLayout]="true"
+                        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]" [(first)]="first"
+                        (onPage)="paginate($event)" [loading]="loading"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                        <ng-template pTemplate="caption">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <input type="text" style="width: 18rem;" pInputText size="50" placeholder="Search records"
+                                (input)="searchTable($event)" class="global-search" />
+                            </div>
+                           
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th *ngFor="let col of headerList; let i = index" [ngStyle]="i == 0 && { width: '5%' }">
+                              {{ col.header }}
+                              <p-sortIcon *ngIf="i == 10" [field]="col.field"></p-sortIcon>
+                            </th>
+                            <th style="width: 10%">ACTION</th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+                          <tr>
+                            <td *ngFor="let col of headerList">
+                              {{ car[col.field] }}
+                            </td>
+                            <td>
+                              <button type="button" pTooltip="Edit" tooltipPosition="right" class="btn btn-icon btn-secondary btn-icon-only rounded-circle" (click)="addMap(BranchFormPopup)">
+                                <span class="btn-inner--icon"><i class="fa fa-pen"></i></span>
+                              </button>
+                            </td>
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </div>
+              
+                    <!-- Second Table -->
+                    <div class="dataTables_wrapper checklist-table w-100" style="
+                        background-color: #ffffff;
+                        box-shadow: 0px 7px 9px 5px #c2cdd7;
+                        border-radius: 8px;
+                        overflow: hidden; margin-top: 30px;">
+                      <p-table [paginator]="true" [rows]="10" [value]="formattedDataForPermissions" [autoLayout]="true"
+                        [showCurrentPageReport]="true" [rowsPerPageOptions]="[10, 25, 50, 100]" [(first)]="first"
+                        (onPage)="paginate($event)" [loading]="loading"
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                        <ng-template pTemplate="caption">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <input type="text" style="width: 18rem;" pInputText size="50" placeholder="Search records"
+                                (input)="searchTable($event)" class="global-search" />
+                            </div>
+                            <div class="col-sm-6 text-right">
+                              <div class="btn-group">
+                               
+                                <button type="button" class="btn success" pTooltip="Download" tooltipPosition="bottom" (click)="onDownloadExcelFileForPermission('Permission List')">
+                                    <i class='fas fa-external-link-alt' style='font-size:16px; color:rgb(160, 117, 201);'></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-template>
+                        <ng-template pTemplate="header">
+                          <tr>
+                            <th *ngFor="let col of headerListForPermissions; let i = index" [ngStyle]="i == 0 && { width: '5%' }">
+                              {{ col.header }}
+                              <p-sortIcon *ngIf="i == 10" [field]="col.field"></p-sortIcon>
+                            </th>
+                            <th style="width: 10%">ACTION</th>
+                          </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+                          <tr>
+                            <td *ngFor="let col of headerListForPermissions">
+                              {{ car[col.field] }}
+                            </td>
+                            <td>
+                              <button type="button" pTooltip="Edit" tooltipPosition="right" class="btn btn-icon btn-secondary btn-icon-only rounded-circle" (click)="addBranch(BranchMappingFormPopup)">
+                                <span class="btn-inner--icon"><i class="fa fa-pen"></i></span>
+                              </button>
+                            </td>
+                          </tr>
+                        </ng-template>
+                      </p-table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+            <!-- End of Row -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  <p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+    [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

@@ -1,0 +1,107 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home text-dark"> </i>
+                </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                Configuration Repository
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--6">
+  <div class="row" style="margin-top: 4rem">
+    <div class="col-md-12">
+      <div class="card" style="box-shadow: 0px 7px 9px 5px #b7b7b7">
+        <div class="row" style="align-items: center;">
+          <div class="col-md-6" style="padding-top: 20px; padding-left: 35px;">
+            <h4>CONFIGURATION REPOSITORY</h4>
+          </div>
+          <div class="col-md-6" style="text-align: right; padding-right: 35px; padding-top: 20px;">
+            <button type="button" class="btn success" pTooltip="Back" tooltipPosition="top" (click)="OnBack()">
+              <i class="fa fa-arrow-left fa-lg"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <p style="color: black; font-weight: bold">Collaboration Tools</p>
+          <div class="row">
+            <div class="col-md-4 mb-3" (click)="NavigateToGitSelection()" style="cursor: pointer">
+              <div class="card card-pricing bg-secondary card-uniform">
+                <div class="row">
+                  <div class="col-6">
+                    <img class="brand_git_logo" src="../../../../assets/img/Login/Github-Logo.png"
+                      style="width: 150px; height: 95px" />
+                  </div>
+                  <div class="col-6 mt-4">
+                    <label class="form-control-label brand_text" for="remarks"
+                      style="margin-left: 20px; font-size: 24px">Git Hub</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3" (click)="NavigateToGitLabSelection()" style="cursor: pointer">
+              <div class="card card-pricing bg-secondary card-uniform">
+                <div class="row">
+                  <div class="col-6">
+                    <img class="brand_gitlab_logo" src="../../../../assets/img/Login/gitlab.png" />
+                  </div>
+                  <div class="col-6 mt-4">
+                    <label class="form-control-label brand_text" for="remarks"
+                      style="margin-left: 20px; font-size: 24px">Git Lab</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3" (click)="NavigateToSFTPSelection()" style="cursor: pointer">
+              <div class="card card-pricing bg-secondary card-uniform">
+                <div class="row">
+                  <div class="col-6">
+                    <img class="brand_logo_upload" src="../../../../assets/img/Login/sftp.png" />
+                  </div>
+                  <div class="col-6 mt-4">
+                    <label class="form-control-label brand_text" for="remarks"
+                      style="margin-left: 20px; font-size: 24px">SFTP</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 
+              <div class="col-md-3 mb-3">
+                <div class="card card-pricing bg-secondary card-uniform">
+                  <div class="row">
+                    <div class="col-6">
+                      <img class="brand_logo_upload" src="../../../../assets/img/Login/manualupload.png" />
+                    </div>
+                    <div class="col-6 mt-4">
+                      <label class="form-control-label brand_text" for="remarks" style="
+                          margin-left: -7px;
+                          margin-top: 12px;
+                          font-size: 24px;
+                        ">Manual Upload</label>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

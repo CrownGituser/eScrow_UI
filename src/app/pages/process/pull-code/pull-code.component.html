@@ -1,0 +1,263 @@
+<div class="header">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item">
+                                <a href="javascript:void(0)" class="text-gray">
+                                    <i class="fas fa-home" routerLink="/search/quick-search"> </i>
+                                </a>
+                            </li>
+                            <li aria-current="page" class="breadcrumb-item active text-dark">
+                                Pull & audit
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card flex justify-content-center " style="width: 95%; margin-left: 50px; margin-bottom: 6px;">
+    <div class="row">
+        <div class="col-10" style="padding-left: 40px; padding-right: 0;">
+            <h1 style="padding-top: 6px; margin-bottom: 20px; margin-top: 20px; color: #003564 !important;">
+                {{ projectName }}
+            </h1>
+        </div>
+        <div class="col-2 text-right" style="margin-top: 1.5%; padding-right: 2%;">
+            <button style="margin-right: 20px;" type="button" class="btn success" pTooltip="Download"
+                tooltipPosition="top" (click)="onBack()">
+                <i class="fa fa-arrow-left fa-lg"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="custom-tab-view">
+    <p-tabView >
+        <p-tabPanel header="Source Code">
+            <div class="row">
+                <div class="col-8" *ngIf="events && events.length > 0">
+                    <div class="card  flex justify-content-center" style="width: 100%; margin-left: 5px; ">
+                        <div *ngFor="let item of events | slice:0:5">
+                            <div class="row">
+                                <!-- Left Section -->
+                                <div class="col-8" style="padding-left: 40px; padding-right: 0;">
+                                    <div class="row align-items-center">
+                                        <!-- Status Section -->
+                                        <div class="col-1 ">
+                                            <i [class]="item.Status === 'Code Pull Completed' ? 'pi pi-check-circle' : 'pi pi-times-circle'"
+                                                [ngStyle]="{'color': item.Status === 'Code Pull Completed' ? 'green' : 'red'}"
+                                                style="font-weight: bold;font-size: larger;"></i>
+                                        </div>
+                                        <div class="col-11 text-end">
+                                            <h3 [ngClass]="{'text-danger': item.Status !== 'Code Pull Completed'}"
+                                                style="margin-top: 15px;">{{ item.Status }}</h3>
+                                        </div>
+                                        <!-- Icon Section -->
+                                    </div>
+                                    <hr style="margin-top: 0px; margin-bottom: 9px;" />
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p><strong style="font-weight: bold;">Code Pulled By:</strong> {{
+                                                item.CodePull_by }}
+                                            </p>
+                                            <p><strong style="font-weight: bold;">Last Pulled Date:</strong> {{
+                                                item.CodeLastPullAt
+                                                }}</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p><strong style="font-weight: bold;">Deposit Method:</strong> {{
+                                                item.repository }}</p>
+                                            <p><strong style="font-weight: bold;">File Size:</strong> {{ item.fileSize
+                                                }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Right Section -->
+                                <div class="col-3">
+                                    <label for="Comment-{{ item.id }}"
+                                        style="display: block; margin-bottom: 15px;"></label>
+                                    <textarea placeholder="Enter Comment while pull" rows="4" cols="35"
+                                        [(ngModel)]="item.Comment" disabled="true"
+                                        style="margin-top: 5px; border-radius: 25px; border-color: #dee2e6; padding-left: 15px; padding-top: 10px;">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <hr style="margin-bottom: 0px;margin-top: 0px;" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 text-center" *ngIf="!events || events.length === 0 || events === null">
+                    <h2 style="margin-top: 20px; color: #003564;">No Log Found</h2>
+                </div>
+
+                <div class="col-4" style="margin-left: -13px;">
+                    <p-card>
+                        <form [formGroup]="ProjectCodePullForm">
+                            <div class="modal-body">
+                                <!-- Pull Source Code Button -->
+                                <div *ngIf="IntegrationType === 'GIT'" class="pl-4 pb-4">
+                                    <img [src]="initilizerLoaderOn ? 'assets/img/Login/download.gif' : 'assets/img/Login/download_png.png'"
+                                        alt="Edit User"
+                                        [ngClass]="initilizerLoaderOn ? 'image-downloadgif' : 'image-download'" />
+                                    <a class="btn successbtn btn-block" (click)="pullGitCode()"
+                                        style="color: white; height: 3.5rem; padding: 9px 16px; border-radius: 4px; font-size: 25px;"
+                                        pTooltip="Code Pull" tooltipPosition="top"> Pull Source Code</a>
+                                </div>
+
+                                <div *ngIf="IntegrationType === 'SFTP'" class="pl-4 pb-4">
+                                    <img [src]="initilizerLoaderOn ? 'assets/img/Login/download.gif' : 'assets/img/Login/download_png.png'"
+                                        alt="Edit User"
+                                        [ngClass]="initilizerLoaderOn ? 'image-downloadgif' : 'image-download'" />
+                                    <a class="btn successbtn btn-block" (click)="DownloadSFTPCode()"
+                                        style="color: white; height: 3.5rem; padding: 9px 16px; border-radius: 4px; font-size: 25px;"
+                                        pTooltip="Code Pull" tooltipPosition="top"> Download Source Code</a>
+                                </div>
+
+
+                                <!-- Code Pull Status -->
+                                <div>
+                                    <div *ngIf="initilizerLoaderOn" style="display: flex; align-items: center;">
+                                        <p
+                                            style="margin: 0; padding-right: 10px; padding-left: 30px; font-size: large; color: #005e82">
+                                            Code Pull Initialized
+                                        </p>
+                                    </div>
+
+                                    <div *ngIf="finalMessage" style="display: flex; align-items: center;">
+                                        <p
+                                            style="margin: 0; padding-right: 10px;padding-left: 20px; font-size: large; color: #525e51">
+                                            Code Pull Completed
+                                        </p>
+                                        <div>
+                                            <img src="assets/img/Login/Success.gif" style="width: 50px;" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Comment Field -->
+                                <div class="pl-4 pt-4">
+                                    <label for="Comment" style="font-size: large;">Comment *</label>
+                                    <textarea id="Comment" formControlName="Comment" name="Comment" ngModel required
+                                        rows="5" cols="50" style="border-radius: 3px;"
+                                        [ngClass]="{'is-invalid': f.Comment.touched && f.Comment.invalid}"></textarea>
+                                </div>
+
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+
+                                <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+                                    [disabled]="ProjectCodePullForm.invalid" data-dismiss="modal">Submit Code</button>
+                            </div>
+                        </form>
+                    </p-card>
+                </div>
+            </div>
+
+        </p-tabPanel>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+
+        <p-tabPanel header="View Source Code">
+            <div class="header">
+                <!-- <div class="container-fluid">
+                    <div class="header-body">
+                        <div class="row align-items-center py-4">
+                            <div class="col-lg-6 col-7">
+                                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                        <li class="breadcrumb-item">
+                                            <a href="javascript:void(0)" class="text-gray">
+                                                <i class="fas fa-home" routerLink="/search/quick-search"> </i>
+                                            </a>
+                                        </li>
+
+                                        <li class="breadcrumb-item">
+                                            <a href="javascript:void(0)" class="text-gray"> Process </a>
+                                        </li>
+
+                                        <li aria-current="page" class="breadcrumb-item active text-dark">
+                                            Source Code Details
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="container-fluid mt--6">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="mb-0 float-left">Source Code Browse</h3>
+                                <div class="btn-group float-right">
+                                    <!-- <button type="button" class="btn success" pTooltip="Download" tooltipPosition="top"
+                                        (click)="onBack()">
+                                        <i class="fa fa-arrow-left fa-lg"></i>
+                                    </button> -->
+                                    <a><span class="btn-inner--icon" (click)="downloadSCFile()"><img
+                                                tooltip="Source Code Download" src="assets/img/clouddownload.png"
+                                                alt="Edit User" class="btn-image"
+                                                style=" width: 28px; height: 28px;margin-left: 10px;" /></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 px-4" style="height: 40rem">
+                                <div class="form-group col-lg-4 col-md-4 scrollbar-thin"
+                                    style="height: 38rem; overflow: auto">
+                                    <div class="flex flex-column align-items-left justify-content-center">
+                                        <p-tree [value]="files" class="w-full md:w-30rem bg-none border-none"
+                                            (onNodeSelect)="onNodeSelect($event)" (click)="getFile($event)"
+                                            selectionMode="single" [(selection)]="selectedFile">
+                                        </p-tree>
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-8 col-md-8 scrollbar-thin"
+                                    style="height: 38rem; overflow: auto">
+                                    <div class="rounded shadow-sm p-4 overflow-auto"
+                                        style="max-height: 450px;border: 1px solid rgba(255, 255, 255, 0.1);font-family: 'Courier New', monospace;line-height: 1.5;color: black;">
+                                        <pre *ngFor="let line of contentLines" class="mb-0 px-2 py-1"
+                                            style="white-space: pre-wrap;word-wrap: break-word;border-left: 3px solid #5bc0de;color: black;">{{ line }}</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-8 text-center" *ngIf="!ViewSourceCode">
+                <h2 style="margin-top: 20px; color: #003564;">No Source Code Found.</h2>
+            </div> -->
+
+            <p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+                [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
+        </p-tabPanel>
+    </p-tabView>
+</div>
+
+
+
+
+
+
+
+
+<!-- <p-tabPanel header="Verification Code">
+
+
+        </p-tabPanel> -->

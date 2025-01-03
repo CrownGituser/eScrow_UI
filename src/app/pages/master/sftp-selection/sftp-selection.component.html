@@ -1,0 +1,215 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home text-dark"> </i>
+                </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                SFTP Selection
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--6">
+  <div class="row" style="margin-top: 2rem">
+    <div class="col-md-12">
+      <div class="card" style="box-shadow: 0px 7px 9px 5px #b7b7b7">
+        <div class="row" style="align-items: center">
+          <div class="col-md-6" style="padding-top: 20px; padding-left: 35px">
+            <h4>CONFIGURATION SFTP REPOSITORY</h4>
+          </div>
+          <div class="col-md-6" style="text-align: right; padding-right: 35px; padding-top: 20px">
+            <button type="button" class="btn success" pTooltip="Back" tooltipPosition="top" (click)="OnBack()">
+              <i class="fa fa-arrow-left fa-lg"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <p style="color: black; font-weight: bold">SFTP Selection</p>
+          <form class="needs-validation" novalidate="" [formGroup]="SFTPform" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" for="ProjectName" style="width: 40%;">
+                  Project Name *
+                </label>
+                <input name="ProjectName" formControlName="ProjectName" type="text" class="form-control"
+                  [ngClass]="{'is-invalid': f.ProjectName.touched && f.ProjectName.invalid}" ng-pattern="/^[a-zA-Z]*$/"
+                  [readOnly]="true" />
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="host_name" style="font-size: 15px">Host Name *</label>
+                <input class="form-control" type="text" name="host_name" id="host_name" formControlName="host_name"
+                  placeholder="Host name" [ngClass]="{
+                    'is-invalid': f.host_name.touched && f.host_name.invalid}" />
+                <!-- [readOnly]="isReadonly" -->
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="port" style="font-size: 15px">Port No *</label>
+                <input class="form-control" type="number" name="port" id="port" formControlName="port"
+                  placeholder="Port No" [ngClass]="{ 'is-invalid': f.port.touched && f.port.invalid }" />
+                <!-- [readOnly]="isReadonly" -->
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="remoteDirectory" style="font-size: 15px">Remote Directory
+                  *</label>
+                <input class="form-control" type="text" name="remoteDirectory" id="remoteDirectory"
+                  formControlName="remoteDirectory" placeholder="Remote Directory" [ngClass]="{
+                    'is-invalid': f.remoteDirectory.touched && f.remoteDirectory.invalid
+                  }" />
+                <!-- [readOnly]="isReadonly" -->
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label" for="user_name" style="font-size: 15px">User Name *</label>
+                <input class="form-control" type="text" name="user_name" id="user_name" formControlName="user_name"
+                  placeholder="UserName" [ngClass]="{
+                    'is-invalid': f.user_name.touched && f.user_name.invalid
+                  }" />
+                <!-- [readOnly]="isReadonly" -->
+              </div>
+
+              <div class="col-4 mb-3">
+                <label class="form-control-label" for="user_password" style="font-size: 15px">Password *</label>
+                <input name="user_password" id="user_password" formControlName="user_password" required minlength="10"
+                  placeholder="Password" type="password" class="form-control"
+                  [ngClass]="{'is-invalid': f.user_password.touched && f.user_password.invalid}" />
+                <!-- [readOnly]="isReadonly" -->
+                <div class="errorMsg-feedback" *ngIf="f.user_password.touched && f.user_password.errors">
+                  Password should meet the following criteria:
+                  <ul>
+                    <li>Contain at least 12 characters</li>
+                    <li>Contain at least 1 special character</li>
+                    <li>Contain at least 1 number</li>
+                    <li>Contain at least 1 lowercase character (a-z)</li>
+                    <li>Contain at least 1 uppercase character (A-Z)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" for="Scheduler" style="width: 40%">
+                  Scheduler *
+                </label>
+                <select name="Scheduler" id="Scheduler" class="form-control" formControlName="Scheduler"
+                  (change)="Scheduler($event.target.value)"
+                  [ngClass]="{'is-invalid': f.Scheduler.touched && f.Scheduler.invalid}">
+                  <option value="0">Apply Scheduler</option>
+                  <option value="Y">YES</option>
+                  <option value="N">NO</option>
+                </select>
+                <!-- [readOnly]="isReadonly" [disabled]="isReadonly" -->
+              </div>
+
+              <div *ngIf="scheduleractivity" class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" for="SchedulerFrequency" style="width: 40%">
+                  Scheduler Frequency *
+                </label>
+                <select name="SchedulerFrequency" id="SchedulerFrequency" class="form-control"
+                  formControlName="SchedulerFrequency" (change)="SchedulerFrequency()"
+                  [ngClass]="{'is-invalid': f.SchedulerFrequency.touched && f.SchedulerFrequency.invalid}">
+                  <option value="0">Select Scheduler Frequency</option>
+                  <option value="Daily">Daily</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Monthly">Monthly</option>
+                </select>
+              </div>
+
+              <!-- Daily: Time Picker [disabled]="isReadonly" -->
+              <div *ngIf="schedulerType === 'Daily'" class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" style="width: 40%" for="DailyTime">Select Time *</label>
+                <input class="form-control" name="DailyTime" id="DailyTime" matInput [format]="24"
+                  [ngxTimepicker]="timePicker" placeholder="Select Time" formControlName="DailyTime">
+                <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+              </div>
+
+              <!-- Weekly:Day Dropdown-->
+              <div *ngIf="schedulerType === 'Weekly'" class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" style="width: 40%" for="WeeklyDay">Select Day *</label>
+                <select name="WeeklyDay" id="WeeklyDay" formControlName="WeeklyDay" class="form-control"
+                  [ngClass]="{'is-invalid': f.WeeklyDay.touched && f.WeeklyDay.invalid}">
+                  <option value="0">Select Weekly Day</option>
+                  <option value="Sunday">Sunday</option>
+                  <option value="Monday">Monday</option>
+                  <option value="Tuesday">Tuesday</option>
+                  <option value="Wednesday">Wednesday</option>
+                  <option value="Thursday">Thursday</option>
+                  <option value="Friday">Friday</option>
+                  <option value="Saturday">Saturday</option>
+                </select>
+              </div>
+
+              <!-- Monthly:Date Picker-->
+              <div *ngIf="schedulerType === 'Monthly'" class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" style="width: 40%" for="MonthlyDate">Select Date (1-31) *</label>
+                <input type="number" formControlName="MonthlyDate" class="form-control" placeholder="Enter Date"
+                  [ngClass]="{'is-invalid': f.MonthlyDate.touched && f.MonthlyDate.invalid}" max="31" min="1">
+                <div *ngIf="f.MonthlyDate.touched && f.MonthlyDate.errors" class="errorMsg-feedback">
+                  Select Date range between 1-31.
+                </div>
+              </div>
+            </div>
+
+              <!-- Weekly:Time Picker -->
+              <div class="form-row">
+              <div *ngIf="schedulerType === 'Weekly'" class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" style="width: 40%" for="WeeklyTime">Time *</label>
+                <input class="form-control" name="WeeklyTime" id="WeeklyTime" matInput [format]="24"
+                  [ngxTimepicker]="weeklyTimePicker" placeholder="Select Time" formControlName="WeeklyTime">
+                <ngx-material-timepicker #weeklyTimePicker></ngx-material-timepicker>
+              </div>
+
+              <!-- Monthly:Time Picker -->
+              <div *ngIf="schedulerType === 'Monthly'" class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" style="width: 40%" for="MonthlyTime" class="mt-2">Time *</label>
+                <input class="form-control" matInput [format]="24" [ngxTimepicker]="monthlyTimePicker"
+                  placeholder="Select Time" formControlName="MonthlyTime">
+                <ngx-material-timepicker #monthlyTimePicker></ngx-material-timepicker>
+              </div>
+            </div>
+
+
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn successbtn" [disabled]="SFTPform.invalid">
+                Save
+              </button>
+              <button type="button" class="btn dangerbtn" (click)="OnReset()" [disabled]="isReadonly">
+                Reset
+              </button>
+              <button *ngIf="activationBtn" type="button" class="btn primarybtn ml-2" (click)="onActivateBtn()">
+                Activate
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
+
+
+
+<!-- <div class="col-md-4 mb-3">
+                <label class="form-control-label pr-2" style="width: 40%" for="EndTime">End Time *</label>
+                <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'"></ngx-timepicker-field>
+                <timepicker [(ngModel)]="myTime" [showMeridian]="isMeridian" [readonlyInput]="!readonly"></timepicker>
+              </div> -->

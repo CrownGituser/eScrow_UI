@@ -1,0 +1,70 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home" routerLink="/search/quick-search"> </i>
+                </a>
+              </li>
+
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray"> Process </a>
+              </li>
+
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                Source Code Details
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="mb-0 float-left">Source Code Browse</h3>
+          <div class="btn-group float-right">
+            <button type="button" class="btn success" pTooltip="Download" tooltipPosition="top"
+              (click)="onBack()">
+              <i class="fa fa-arrow-left fa-lg"></i>
+            </button>
+            <a><span class="btn-inner--icon" (click)="downloadSCFile()"><img
+              tooltip="Source Code Download" src="assets/img/clouddownload.png" alt="Edit User" class="btn-image"
+              style=" width: 28px; height: 28px;margin-left: 10px;" /></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="row mt-3 px-4" style="height: 40rem">
+          <div class="form-group col-lg-4 col-md-4 scrollbar-thin" style="height: 38rem; overflow: auto">
+            <div class="flex flex-column align-items-left justify-content-center">
+              <p-tree [value]="files" class="w-full md:w-30rem bg-none border-none"
+                (onNodeSelect)="onNodeSelect($event)" (click)="getFile($event)" selectionMode="single"
+                [(selection)]="selectedFile">
+              </p-tree>
+            </div>
+          </div>
+          <div class="form-group col-lg-8 col-md-8 scrollbar-thin" style="height: 38rem; overflow: auto">
+            <div class="rounded shadow-sm p-4 overflow-auto"
+              style="max-height: 450px;border: 1px solid rgba(255, 255, 255, 0.1);font-family: 'Courier New', monospace;line-height: 1.5;color: black;">
+              <pre *ngFor="let line of contentLines" class="mb-0 px-2 py-1"
+                style="white-space: pre-wrap;word-wrap: break-word;border-left: 3px solid #5bc0de;color: black;">{{ line }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

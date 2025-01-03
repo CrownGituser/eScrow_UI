@@ -1,0 +1,80 @@
+<div class=" header  pb-6">
+  <div class=" container-fluid">
+    <div class=" header-body">
+      <div class=" row align-items-center py-4">
+        <div class=" col-lg-6 col-7">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" container-fluid mt--6">
+  <div class=" row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="needs-validation" novalidate="" [formGroup]="AddRoleForm">
+            <div class="row">
+              <div class="col-md-5 mb-3">
+                <div class="form-group">
+                  <label class="form-control-label" for="permissionName">Permission Name *</label>
+                  <input type="text" class="form-control" id="permissionName" formControlName="permissionName"
+                    placeholder="Permission Name" required [readOnly]="isReadOnly" />
+                </div>
+              </div>
+              <div class="col-md-5 mb-3">
+                <div class="form-group">
+                  <label class="form-control-label" for="remarks">Remarks</label>
+                  <input type="text" class="form-control" id="remarks" formControlName="remarks" placeholder="Remark"
+                    required />
+                </div>
+              </div>
+              <div class="col-md-2 mb-3">
+                <div class="form-group">
+                  <div class="col-lg-12 text-right">
+                    <button type="button" class="btn success" pTooltip="Back" tooltipPosition="top" (click)="OnBack()">
+                      <i class="fa fa-arrow-left fa-lg"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <div style="border-top: 2px solid rgb(131, 131, 241); box-shadow: 0px 7px 9px 5px #c2cdd7;" class="card card-pricing bg-secondary">
+                  <div class="card-body">
+                    <div class="form-group">
+                        <label class="form-control-label " for="remarks">Permission</label>
+                        <div class="col-sm-10">
+                          <button class="btn successbtn" style="color: #000 !important;">
+                            <input type="checkbox" formControlName="SelectAllRights" (change)="OnSelectRightAll()"
+                              [value]=""> Select All
+                          </button>
+                          <ul style="list-style: none;" formArrayName="_PageRight">
+                            <li *ngFor="let right of _PageRight.controls,let i=index">
+                              <ng-container [formGroupName]="i">
+                                <input type="checkbox" formControlName="isChecked"
+                                  [value]="right.get('isChecked').value"><span> {{right.get('page_right').value}}</span>
+                              </ng-container>
+                            </li>
+                          </ul>
+                        </div>
+                      <!-- Button Container -->
+                      <div class="text-right">
+                        <button type="button" class="btn successbtn p-2" (click)="onSubmit()">
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>

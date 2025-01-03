@@ -1,0 +1,94 @@
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item">
+                <a href="javascript:void(0)" class="text-gray">
+                  <i class="fas fa-home" routerLink="/search/quick-search"></i>
+                </a>
+              </li>
+              <li aria-current="page" class="breadcrumb-item active text-dark">
+                Upload
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div class="col-lg-6 col-5 d-flex justify-content-end">
+          <button type="button" class="btn success" pTooltip="Back" tooltipPosition="top" (click)="OnBack()">
+            <i class="fa fa-arrow-left fa-lg"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <!-- <div class="row"> -->
+  <!-- <div class="col"> -->
+  <form [formGroup]="FileUPloadForm">
+    <!-- <div class="card"> -->
+    <!-- <div class="card-header"> -->
+    <div class="position-relative row form-group">
+      <div class="col-sm-12" style="padding-top: 32px; background: none;">
+        <div class="flex flex-col items-center">
+          <div class="upload-container">
+            <i class="pi pi-cloud-upload border-2 border-circle p-2 text-9xl text-400 border-400 mb-4"></i>
+            <!-- <p>Files Supported PDFs, JPEG</p> -->
+            <p-fileUpload #fileUpload (onSelect)="getFileDetails($event)" customUpload="true"
+              (uploadHandler)="uploadFiles(fileUpload)" (onRemove)="ClearTableData()" (onClear)="ClearTableData()" multiple="multiple" chooseLabel="Choose"
+              chooseIcon="pi pi-upload" maxFileSize="500000000"
+              accept=".pdf,.doc,.docx,.tif,.tiff,.jpeg,.jpg,.png,.zip,.xls,.xlsx" invalidFileSizeMessageSummary
+              invalidFileTypeMessageSummary>
+              <ng-template pTemplate="content">
+                <ul *ngIf="!myFiles.length">
+                  <p class="mt-0 mb-0">Drag and drop files here to upload.</p>
+                </ul>
+              </ng-template>
+            </p-fileUpload>
+            <p>Maximum Size : 500MB</p>
+          </div>
+          <!-- <div class="flex mt-4 space-x-4">
+                    <button class="btn-upload" (click)="uploadFiles(fileUpload)">Upload</button>
+                    <button class="btn-reset" (click)="resetFiles(fileUpload)">Reset</button>
+                  </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+
+    <div class="dataTables_wrapper">
+      <p-table [paginator]="true" [rows]="10" [value]="formattedData" [autoLayout]="true" [showCurrentPageReport]="true"
+        [rowsPerPageOptions]="[10,25,50,100]" [(first)]="first" (onPage)="paginate($event)" [loading]="loading"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <ng-template pTemplate="caption">
+          <input type="text" pInputText size="50" placeholder="Search records" (input)="searchTable($event)"
+            class="global-search">
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th *ngFor="let col of headerList; let i = index;" [ngStyle]="i==0 && {'width': '5%'}">
+              {{col.header}}
+              <p-sortIcon *ngIf="i==10" [field]="col.field"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-car let-rowIndex="rowIndex">
+          <tr>
+            <td *ngFor="let col of headerList">
+              {{car[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <!-- </div> -->
+  </form>
+  <!-- </div> -->
+  <!-- </div> -->
+</div>
+<p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+  [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'"></p-toast>
